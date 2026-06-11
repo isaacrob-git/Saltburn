@@ -1,3 +1,5 @@
+local sti = require("libraries.sti")
+
 function checkCollision(a, b)
 
     return (
@@ -26,6 +28,8 @@ function love.load()
         facing = 1,
         
     }
+    
+    map = sti("maps/room1.lua")
 
     verticalMultiplier = 1
     horizontalMultiplier = 0.7
@@ -260,13 +264,11 @@ end
 
 function love.draw()
 
+    map:draw()
+
     love.graphics.print("Vertical Edge", 10, 10)
 
-    if player.isGrounded then
-        love.graphics.setColor(0, 1, 0)
-    else
-        love.graphics.setColor(1, 0, 0)
-    end
+
 
     love.graphics.rectangle(
         "fill",
