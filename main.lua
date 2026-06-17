@@ -31,6 +31,27 @@ function love.load()
     
     map = sti("maps/room1.lua")
 
+    for name, layer in pairs(map.layers) do
+        print("CAPA:", name)
+        print("TIPO:", layer.type)
+    end
+
+    platforms = {}
+
+    local layer = map.layers["Collisions"]
+
+    if layer then
+        for _, obj in ipairs(layer.objects) do
+            table.insert(platforms, {
+                x = obj.x,
+                y = obj.y,
+                width = obj.width,
+                height = obj.height
+            })
+        end
+    end
+
+
     verticalMultiplier = 1
     horizontalMultiplier = 0.7
     wallBounceForce = 120
@@ -124,9 +145,7 @@ function love.update(dt)
     player.velocityY = player.velocityY + gravity * dt
     player.y = player.y + player.velocityY * dt
 
-    local currentPlatforms = rooms[currentRoom] or {}
-
-    for _, platform in ipairs(currentPlatforms) do
+    for _, platform in ipairs(platforms) do
 
         if checkCollision(player, platform) then
 
@@ -315,24 +334,6 @@ function love.draw()
         math.floor(player.jumpPower),
         10,
         110
-    )
-
-    for _, platform in ipairs(rooms[currentRoom]) do
-
-        love.graphics.rectangle(
-            "fill",
-            platform.x,
-            platform.y,
-            platform.width,
-            platform.height
-        )
-
-    end
-
-    love.graphics.print(
-        "Room: " .. tostring(currentRoom),
-        10,
-        190
     )
 
 end

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="25" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="25" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="19">
+ <editorsettings>
+  <export target="room1.lua" format="lua"/>
+ </editorsettings>
  <tileset firstgid="1" name="ground" tilewidth="32" tileheight="32" tilecount="64" columns="8">
   <image source="../assets/tilesets/ground.png" width="256" height="256"/>
  </tileset>
@@ -18,8 +21,8 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 82,82,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,131,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,131,
-0,0,0,0,0,82,82,0,0,0,0,0,0,0,0,0,0,82,82,82,82,0,0,0,131,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,131,
+0,0,0,0,0,82,82,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,131,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,83,83,83,83,0,0,0,131,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,131,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,131,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,131,
@@ -35,4 +38,13 @@
 10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10
 </data>
  </layer>
+ <objectgroup id="3" name="Collisions">
+  <object id="6" x="94.3953" y="381.721" width="159.81" height="34.7772"/>
+  <object id="7" x="1.65606" y="511.722" width="797.392" height="95.2233"/>
+  <object id="12" x="608.601" y="287.326" width="126.688" height="32.2931"/>
+  <object id="13" x="767.583" y="64.5862" width="30.6371" height="254.205"/>
+  <object id="14" x="544.843" y="160.638" width="125.86" height="28.981"/>
+  <object id="15" x="161.466" y="126.688" width="62.1022" height="32.2931"/>
+  <object id="16" x="1.65606" y="64.5862" width="94.3953" height="30.6371"/>
+ </objectgroup>
 </map>
