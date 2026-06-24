@@ -9,7 +9,7 @@ return {
   height = 19,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 4,
+  nextlayerid = 7,
   nextobjectid = 37,
   properties = {},
   tilesets = {
@@ -176,7 +176,7 @@ return {
       id = 3,
       name = "Collisions",
       class = "",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -311,6 +311,22 @@ return {
           properties = {}
         }
       }
+    },
+    {
+      type = "imagelayer",
+      image = "",
+      id = 6,
+      name = "Image Layer 1",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      repeatx = false,
+      repeaty = false,
+      properties = {}
     }
   }
 }

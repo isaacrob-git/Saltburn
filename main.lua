@@ -37,6 +37,17 @@ function love.load()
         
     }
 
+    gameState = "menu"
+
+    menuOptions = {
+        "Nueva Partida",
+        "Continuar",
+        "Opciones",
+        "Salir"
+    }
+
+    selectedOption = 1
+
 
     player.animations = {}
 
@@ -171,6 +182,23 @@ function love.load()
     gravity = 2000
     maxChargeTime = 1
 
+    titleFont = love.graphics.newFont(
+        "assets/fonts/font.ttf",
+        48
+    )
+
+    menuFont = love.graphics.newFont(
+        "assets/fonts/font.ttf",
+        24
+    )
+
+    smallFont = love.graphics.newFont(
+        "assets/fonts/font.ttf",
+        14
+    )
+
+     verysmallFont = love.graphics.newFont(14)
+
     
 end
 
@@ -235,6 +263,29 @@ end
 
 function love.update(dt)
 
+    if gameState ~= "playing" then
+        return
+    end
+
+    if gameState == "menu" then
+
+        for _, layer in ipairs(parallax) do
+
+            layer.x =
+                layer.x - layer.speed * dt
+
+            if layer.x <=
+                -layer.image:getWidth() then
+
+                layer.x = 0
+
+            end
+
+        end
+
+        return
+
+    end
 
     updateAnimation(dt)
     player.previousX = player.x
@@ -458,6 +509,56 @@ end
 
 function love.keyreleased(key)
 
+    if gameState == "menu" then
+
+        if key == "up" or key == "w" then
+
+            selectedOption =
+                selectedOption - 1
+
+            if selectedOption < 1 then
+                selectedOption = #menuOptions
+            end
+
+        end
+
+        if key == "down" or key == "s" then
+
+            selectedOption =
+                selectedOption + 1
+
+            if selectedOption > #menuOptions then
+                selectedOption = 1
+            end
+
+        end
+
+        if key == "return" then
+
+            if selectedOption == 1 then
+
+                gameState = "playing"
+
+            elseif selectedOption == 2 then
+
+                gameState = "playing"
+
+            elseif selectedOption == 3 then
+
+                gameState = "options"
+
+            elseif selectedOption == 4 then
+
+                love.event.quit()
+
+            end
+
+        end
+
+        return
+
+    end
+
     if key == "space"
        and player.isCharging then
 
@@ -491,19 +592,81 @@ end
 
 function love.draw()
 
-   for i = 1, 6 do
+
+    if gameState == "menu" then
+
+        love.graphics.setFont(titleFont)
+
+        love.graphics.printf(
+            "SALTBURN",
+            0,
+            80,
+            800,
+            "center"
+        )
+
+        
+
+            love.graphics.setFont(smallFont)
+
+            love.graphics.printf(
+                "Version 0.1 Alpha",
+                0,
+                570,
+                800,
+                "center"
+            )
+
+        for i, option in ipairs(menuOptions) do
+
+            local prefix = "  "
+
+            if i == selectedOption then
+                prefix = "> "
+            end
+
+            love.graphics.printf(
+                prefix .. option,
+                0,
+                200 + (i * 40),
+                800,
+                "center"
+            )
+
+        end
+
+        return
+
+
+    end
+
+
+    for i = 1, 6 do
+
+        local scaleX =
+            love.graphics.getWidth() /
+            backgrounds[i]:getWidth()
+
+        local scaleY =
+            love.graphics.getHeight() /
+            backgrounds[i]:getHeight()
 
         love.graphics.draw(
             backgrounds[i],
             0,
-            0
+            0,
+            0,
+            scaleX,
+            scaleY
         )
 
     end
 
     map:draw()
 
-    love.graphics.print("Vertical Edge", 10, 10)
+    love.graphics.setFont(verysmallFont)
+
+    love.graphics.print("SALTBURN", 10, 10)
 
 
     local anim =
@@ -563,11 +726,11 @@ function love.draw()
         110
     )
 
-    love.graphics.setColor(1,0,0)
-        for _, p in ipairs(platforms) do
-            love.graphics.rectangle("line", p.x, p.y, p.width, p.height)
-        end
-        love.graphics.setColor(1,1,1)
+    --love.graphics.setColor(1,0,0)
+    --    for _, p in ipairs(platforms) do
+    --        love.graphics.rectangle("line", p.x, p.y, p.width, p.height)
+    --    end
+    --    love.graphics.setColor(1,1,1)
 
 
     love.graphics.print(
@@ -584,7 +747,7 @@ function love.draw()
            -- player.width,
            -- player.height
         --)
-        love.graphics.setColor(1,1,1)
+        --love.graphics.setColor(1,1,1)
 
         love.graphics.print(
             "Offset X: "..player.spriteOffsetX,
