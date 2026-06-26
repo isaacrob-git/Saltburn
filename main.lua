@@ -11,6 +11,21 @@ function checkCollision(a, b)
 
 end
 
+function formatTime(seconds)
+
+    local hours = math.floor(seconds / 3600)
+    local minutes = math.floor((seconds % 3600) / 60)
+    local remainingSeconds = math.floor(seconds % 60)
+
+    return string.format(
+        "%02d:%02d:%02d",
+        hours,
+        minutes,
+        remainingSeconds
+    )
+
+end
+
 function love.load()
 
     love.graphics.setDefaultFilter(
@@ -36,6 +51,9 @@ function love.load()
         
         
     }
+
+    menuBackgrounds =
+    loadBackground("menu")
 
     gameState = "menu"
 
@@ -128,13 +146,22 @@ function love.load()
     rooms = {
         "maps/room1.lua",
         "maps/room2.lua",
-        "maps/room3.lua"
+        "maps/room3.lua",
+        "maps/room4.lua",
+        "maps/room5.lua",
+        "maps/room6.lua",
+        "maps/room7.lua"
+        
     }
 
         roomBackgrounds = {
         [1] = "forest",
-        [2] = "forest",
-        [3] = "forest"
+        [2] = "forest2",
+        [3] = "forest2",
+        [4] = "forest",
+        [5] = "forest",
+        [6] = "forest",
+        [7] = "forest"
     }
 
     currentRoom = 1
@@ -167,9 +194,10 @@ function love.load()
 
         roomHeight = map.height * map.tileheight
 
-        loadBackground(
-            roomBackgrounds[index]
-        )
+        gameBackgrounds =
+            loadBackground(
+                roomBackgrounds[index]
+            )
 
     end
 
@@ -181,6 +209,10 @@ function love.load()
     walkSpeed = 120
     gravity = 2000
     maxChargeTime = 1
+
+    -- Estadísticas de la partida
+    gameTime = 0
+    jumpCount = 0
 
     titleFont = love.graphics.newFont(
         "assets/fonts/font.ttf",
@@ -199,12 +231,14 @@ function love.load()
 
      verysmallFont = love.graphics.newFont(14)
 
+     -- Boton tester
+     debugFly = false
     
 end
 
 function loadBackground(backgroundName)
 
-    backgrounds = {}
+    local backgrounds = {}
 
     for i = 1, 6 do
 
@@ -216,6 +250,33 @@ function loadBackground(backgroundName)
                 i ..
                 ".png"
             )
+
+    end
+
+    return backgrounds
+
+end
+
+function drawBackground(backgroundSet)
+
+    for i = 1, #backgroundSet do
+
+        local scaleX =
+            love.graphics.getWidth() /
+            backgroundSet[i]:getWidth()
+
+        local scaleY =
+            love.graphics.getHeight() /
+            backgroundSet[i]:getHeight()
+
+        love.graphics.draw(
+            backgroundSet[i],
+            0,
+            0,
+            0,
+            scaleX,
+            scaleY
+        )
 
     end
 
@@ -267,6 +328,10 @@ function love.update(dt)
         return
     end
 
+    if gameState == "playing" then
+        gameTime = gameTime + dt
+    end
+
     if gameState == "menu" then
 
         for _, layer in ipairs(parallax) do
@@ -286,6 +351,33 @@ function love.update(dt)
         return
 
     end
+
+    --modo tester
+    if debugFly then
+
+        local flySpeed = 300
+
+        if love.keyboard.isDown("i") then
+            player.y = player.y - flySpeed * dt
+        end
+
+        if love.keyboard.isDown("k") then
+            player.y = player.y + flySpeed * dt
+        end
+
+        if love.keyboard.isDown("j") then
+            player.x = player.x - flySpeed * dt
+        end
+
+        if love.keyboard.isDown("l") then
+            player.x = player.x + flySpeed * dt
+        end
+
+        return
+
+    end
+    --modo tester
+
 
     updateAnimation(dt)
     player.previousX = player.x
@@ -505,6 +597,40 @@ function love.keypressed(key)
 
     end
 
+    -- Modo Tester
+    if key == "t" then
+        debugFly = not debugFly
+    end
+
+    -- modo tester
+    if debugFly and key == "e" then
+
+        if currentRoom < #rooms then
+
+            currentRoom = currentRoom + 1
+            loadRoom(currentRoom)
+                player.x = 100
+                player.y = 100
+
+
+        end
+
+    end
+
+    if debugFly and key == "q" then
+
+        if currentRoom > 1 then
+
+            currentRoom = currentRoom - 1
+            loadRoom(currentRoom)
+                player.x = 100
+                player.y = 100
+
+        end
+
+    end
+    -- modo tester
+
 end
 
 function love.keyreleased(key)
@@ -584,6 +710,7 @@ function love.keyreleased(key)
             (player.jumpPower * horizontalMultiplier)
             * jumpDirection
 
+        jumpCount = jumpCount + 1
 
     end
 
@@ -595,6 +722,7 @@ function love.draw()
 
     if gameState == "menu" then
 
+        drawBackground(menuBackgrounds)
         love.graphics.setFont(titleFont)
 
         love.graphics.printf(
@@ -614,7 +742,7 @@ function love.draw()
                 0,
                 570,
                 800,
-                "center"
+                "left"
             )
 
         for i, option in ipairs(menuOptions) do
@@ -641,26 +769,7 @@ function love.draw()
     end
 
 
-    for i = 1, 6 do
-
-        local scaleX =
-            love.graphics.getWidth() /
-            backgrounds[i]:getWidth()
-
-        local scaleY =
-            love.graphics.getHeight() /
-            backgrounds[i]:getHeight()
-
-        love.graphics.draw(
-            backgrounds[i],
-            0,
-            0,
-            0,
-            scaleX,
-            scaleY
-        )
-
-    end
+    drawBackground(gameBackgrounds)
 
     map:draw()
 
@@ -765,6 +874,31 @@ function love.draw()
             "Facing: " .. player.facing,
             10,
             190
+        )
+
+        if debugFly then
+        love.graphics.print(
+            "DEBUG FLY",
+            10,
+            250
+        )
+        end
+        love.graphics.print(
+            "Room: " .. currentRoom,
+            10,
+            270
+        )
+
+        love.graphics.print(
+            "Tiempo: " .. formatTime(gameTime),
+            10,
+            210
+        )
+
+        love.graphics.print(
+            "Saltos: " .. jumpCount,
+            10,
+            230
         )
     
 end

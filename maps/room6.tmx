@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="25" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="55">
+ <editorsettings>
+  <export target="room6.lua" format="lua"/>
+ </editorsettings>
+ <tileset firstgid="1" name="Floor Tiles2" tilewidth="32" tileheight="32" tilecount="162" columns="9">
+  <image source="../assets/tilesets/Floor Tiles2.png" width="288" height="576"/>
+ </tileset>
+ <tileset firstgid="163" name="Other Tiles2" tilewidth="32" tileheight="32" tilecount="63" columns="9">
+  <image source="../assets/tilesets/Other Tiles2.png" width="288" height="224"/>
+ </tileset>
+ <tileset firstgid="226" name="ground" tilewidth="32" tileheight="32" tilecount="64" columns="8">
+  <image source="../assets/tilesets/ground.png" width="256" height="256"/>
+ </tileset>
+ <layer id="1" name="Tile Layer 1" width="25" height="19">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+244,244,244,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,228,228,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,228,228,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,228,228,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,244,244,244,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+228,228,228,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,228,228,228,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,228,0,0,0,0,0,0,228,228,228,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="3" name="Collisions">
+  <object id="45" x="256" y="544.667" width="96" height="31"/>
+  <object id="46" x="319" y="544" width="32.6667" height="64.3333"/>
+  <object id="47" x="544" y="575.75" width="95.5" height="32"/>
+  <object id="48" x="-0.909091" y="416" width="96.9091" height="31.8182"/>
+  <object id="50" x="736" y="256" width="63" height="31.6667"/>
+  <object id="51" x="448.125" y="128.25" width="63.5" height="31.5"/>
+  <object id="52" x="159.75" y="96" width="63.75" height="32"/>
+  <object id="53" x="-3.5" y="63.5" width="99.5" height="32.5"/>
+  <object id="54" x="448" y="320.5" width="95.75" height="31.5"/>
+ </objectgroup>
+</map>
