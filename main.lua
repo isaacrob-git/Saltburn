@@ -57,6 +57,7 @@ function love.load()
 
     gameState = "menu"
 
+    --menu
     menuOptions = {
         "Nueva Partida",
         "Continuar",
@@ -66,6 +67,16 @@ function love.load()
 
     selectedOption = 1
 
+    --pausa
+    pauseOptions = {
+        "Continuar",
+        "Guardar Partida",
+        "Cargar Partida",
+        "Opciones",
+        "Salir al Menú"
+    }
+
+    selectedPauseOption = 1
 
     player.animations = {}
 
@@ -332,6 +343,10 @@ function love.update(dt)
         gameTime = gameTime + dt
     end
 
+    if gameState == "paused" then
+        return
+    end
+
     if gameState == "menu" then
 
         for _, layer in ipairs(parallax) do
@@ -351,6 +366,7 @@ function love.update(dt)
         return
 
     end
+
 
     --modo tester
     if debugFly then
@@ -631,6 +647,54 @@ function love.keypressed(key)
     end
     -- modo tester
 
+            -- pausa
+        if key == "escape" then
+
+            if gameState == "playing" then
+
+                gameState = "paused"
+                return
+
+            elseif gameState == "paused" then
+
+                gameState = "playing"
+                return
+
+            end
+
+        end
+        --pausa
+
+        --pausa
+        if gameState == "paused" then
+
+            if key == "w" or key == "up" then
+
+                selectedPauseOption =
+                    selectedPauseOption - 1
+
+                if selectedPauseOption < 1 then
+                    selectedPauseOption =
+                        #pauseOptions
+                end
+
+            end
+
+            if key == "s" or key == "down" then
+
+                selectedPauseOption =
+                    selectedPauseOption + 1
+
+                if selectedPauseOption > #pauseOptions then
+                    selectedPauseOption = 1
+                end
+
+            end
+
+            
+        end
+--pausa
+
 end
 
 function love.keyreleased(key)
@@ -658,6 +722,7 @@ function love.keyreleased(key)
             end
 
         end
+
 
         if key == "return" then
 
@@ -768,6 +833,64 @@ function love.draw()
 
     end
 
+    --pausa
+    if gameState == "paused" then
+
+        drawBackground(gameBackgrounds)
+
+        map:draw()
+
+        local anim =
+            player.animations[player.state]
+
+        local scale = 2
+
+        love.graphics.draw(
+            anim.image,
+            anim.frames[anim.currentFrame],
+            player.x + player.spriteOffsetX,
+            player.y + player.spriteOffsetY,
+            0,
+            player.facing * scale,
+            scale,
+            30,
+            0
+        )
+
+        love.graphics.setFont(titleFont)
+
+        love.graphics.printf(
+            "PAUSA",
+            0,
+            80,
+            800,
+            "center"
+        )
+
+        love.graphics.setFont(menuFont)
+
+        for i, option in ipairs(pauseOptions) do
+
+            local prefix = "  "
+
+            if i == selectedPauseOption then
+                prefix = "> "
+            end
+
+            love.graphics.printf(
+                prefix .. option,
+                0,
+                220 + i * 40,
+                800,
+                "center"
+            )
+
+        end
+
+        return
+
+    end
+    --pausa
 
     drawBackground(gameBackgrounds)
 
