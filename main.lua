@@ -169,7 +169,7 @@ function love.load()
         [1] = "forest",
         [2] = "forest2",
         [3] = "forest2",
-        [4] = "forest",
+        [4] = "forest2",
         [5] = "forest",
         [6] = "forest",
         [7] = "forest"
@@ -647,11 +647,13 @@ function love.keypressed(key)
     end
     -- modo tester
 
+    
             -- pausa
         if key == "escape" then
 
             if gameState == "playing" then
 
+                selectedPauseOption = 1
                 gameState = "paused"
                 return
 
@@ -666,6 +668,7 @@ function love.keypressed(key)
         --pausa
 
         --pausa
+        
         if gameState == "paused" then
 
             if key == "w" or key == "up" then
@@ -691,7 +694,41 @@ function love.keypressed(key)
 
             end
 
-            
+            -- funciones pausa
+            if key == "return" or key == "kpenter" then
+
+                if selectedPauseOption == 1 then
+
+                    gameState = "playing"
+
+                elseif selectedPauseOption == 2 then
+
+                    -- Guardar Partida
+                    -- Lo implementaremos en la ETAPA 20
+
+                elseif selectedPauseOption == 3 then
+
+                    -- Cargar Partida
+                    -- Lo implementaremos en la ETAPA 21
+
+                elseif selectedPauseOption == 4 then
+
+                    -- Opciones
+                    -- Lo implementaremos más adelante
+
+                elseif selectedPauseOption == 5 then
+
+                    selectedOption = 1
+                    selectedPauseOption = 1
+                    
+                    gameState = "menu"
+
+                    return
+
+                end
+
+            end
+            --funisones pausa
         end
 --pausa
 
@@ -831,8 +868,9 @@ function love.draw()
         return
 
 
-    end
+    end    
 
+    love.graphics.setColor(1, 1, 1, 1)
     --pausa
     if gameState == "paused" then
 
@@ -857,6 +895,20 @@ function love.draw()
             0
         )
 
+        --background del pausa
+        love.graphics.setColor(0, 0, 0, 0.55)
+
+        love.graphics.rectangle(
+            "fill",
+            0,
+            0,
+            love.graphics.getWidth(),
+            love.graphics.getHeight()
+        )
+        --background del pausa
+
+        love.graphics.setColor(1, 1, 1, 1)
+        
         love.graphics.setFont(titleFont)
 
         love.graphics.printf(
@@ -866,6 +918,7 @@ function love.draw()
             800,
             "center"
         )
+        
 
         love.graphics.setFont(menuFont)
 

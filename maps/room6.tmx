@@ -36,8 +36,8 @@
 </data>
  </layer>
  <objectgroup id="3" name="Collisions">
-  <object id="45" x="256" y="544.667" width="96" height="31"/>
-  <object id="46" x="319" y="544" width="32.6667" height="64.3333"/>
+  <object id="45" x="256" y="544.303" width="96" height="31.3636"/>
+  <object id="46" x="319" y="545.091" width="32.6667" height="63.2424"/>
   <object id="47" x="544" y="575.75" width="95.5" height="32"/>
   <object id="48" x="-0.909091" y="416" width="96.9091" height="31.8182"/>
   <object id="50" x="736" y="256" width="63" height="31.6667"/>

@@ -18,6 +18,12 @@
  <tileset firstgid="546" name="TX Village Props" tilewidth="32" tileheight="32" tilecount="1024" columns="32">
   <image source="../assets/tilesets/TX Village Props.png" width="1024" height="1024"/>
  </tileset>
+ <tileset firstgid="1570" name="env_objects" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="../assets/tilesets/env_objects.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="1826" name="walls" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="../assets/tilesets/walls.png" width="512" height="512"/>
+ </tileset>
  <layer id="1" name="Tile Layer 1" width="25" height="19">
   <data encoding="csv">
 228,228,228,228,228,228,228,228,228,228,228,0,0,0,0,0,228,228,228,228,228,228,0,0,0,
