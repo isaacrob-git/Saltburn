@@ -26,6 +26,72 @@ function formatTime(seconds)
 
 end
 
+function tableToString(tbl)
+
+    local result = "{"
+
+    for key, value in pairs(tbl) do
+
+        result = result ..
+            "[" .. string.format("%q", key) .. "]="
+
+        if type(value) == "table" then
+
+            result =
+                result ..
+                tableToString(value)
+
+        elseif type(value) == "string" then
+
+            result =
+                result ..
+                string.format("%q", value)
+
+        else
+
+            result =
+                result ..
+                tostring(value)
+
+        end
+
+        result = result .. ","
+
+    end
+
+    return result .. "}"
+
+end
+
+function saveGame(slot)
+
+    local saveData = {
+
+        room = currentRoom,
+
+        player = {
+            x = player.x,
+            y = player.y,
+            facing = player.facing
+        },
+
+        statistics = {
+            playTime = gameTime,
+            jumps = jumpCount
+        }
+
+    }
+
+    local serialized =
+        "return " .. tableToString(saveData)
+
+    love.filesystem.write(
+        "save" .. slot .. ".lua",
+        serialized
+    )
+
+end
+
 function love.load()
 
     love.graphics.setDefaultFilter(
@@ -170,9 +236,9 @@ function love.load()
         [2] = "forest2",
         [3] = "forest2",
         [4] = "forest2",
-        [5] = "forest",
-        [6] = "forest",
-        [7] = "forest"
+        [5] = "forest2",
+        [6] = "forest2",
+        [7] = "forest2"
     }
 
     currentRoom = 1
@@ -334,6 +400,8 @@ function setState(newState)
 end
 
 function love.update(dt)
+
+    map:update(dt)
 
     if gameState ~= "playing" then
         return
@@ -603,17 +671,70 @@ function love.update(dt)
 
 end
 
+
+--nuevo
 function love.keypressed(key)
+    
+    if gameState == "menu" then
 
-    if key == "space" and player.isGrounded then
+            if key == "up" or key == "w" then
 
-        player.isCharging = true
+                selectedOption =
+                    selectedOption - 1
 
-        player.chargeTime = 0
+                if selectedOption < 1 then
+                    selectedOption = #menuOptions
+                end
 
-    end
+            end
 
-    -- Modo Tester
+            if key == "down" or key == "s" then
+
+                selectedOption =
+                    selectedOption + 1
+
+                if selectedOption > #menuOptions then
+                    selectedOption = 1
+                end
+
+            end
+
+
+            if key == "return" then
+
+                if selectedOption == 1 then
+
+                    gameState = "playing"
+
+                elseif selectedOption == 2 then
+
+                    gameState = "playing"
+
+                elseif selectedOption == 3 then
+
+                    gameState = "options"
+
+                elseif selectedOption == 4 then
+
+                    love.event.quit()
+
+                end
+
+            end
+
+            return
+
+        end
+
+        if key == "space" and player.isGrounded then
+
+            player.isCharging = true
+
+            player.chargeTime = 0
+
+        end
+
+            -- Modo Tester
     if key == "t" then
         debugFly = not debugFly
     end
@@ -647,8 +768,7 @@ function love.keypressed(key)
     end
     -- modo tester
 
-    
-            -- pausa
+
         if key == "escape" then
 
             if gameState == "playing" then
@@ -665,10 +785,8 @@ function love.keypressed(key)
             end
 
         end
-        --pausa
 
         --pausa
-        
         if gameState == "paused" then
 
             if key == "w" or key == "up" then
@@ -703,8 +821,8 @@ function love.keypressed(key)
 
                 elseif selectedPauseOption == 2 then
 
-                    -- Guardar Partida
-                    -- Lo implementaremos en la ETAPA 20
+                   saveGame(1)
+                   print("Partida guardada correctamente.")
 
                 elseif selectedPauseOption == 3 then
 
@@ -730,62 +848,11 @@ function love.keypressed(key)
             end
             --funisones pausa
         end
---pausa
-
+        --pausa
 end
-
+-- nuevo
 function love.keyreleased(key)
 
-    if gameState == "menu" then
-
-        if key == "up" or key == "w" then
-
-            selectedOption =
-                selectedOption - 1
-
-            if selectedOption < 1 then
-                selectedOption = #menuOptions
-            end
-
-        end
-
-        if key == "down" or key == "s" then
-
-            selectedOption =
-                selectedOption + 1
-
-            if selectedOption > #menuOptions then
-                selectedOption = 1
-            end
-
-        end
-
-
-        if key == "return" then
-
-            if selectedOption == 1 then
-
-                gameState = "playing"
-
-            elseif selectedOption == 2 then
-
-                gameState = "playing"
-
-            elseif selectedOption == 3 then
-
-                gameState = "options"
-
-            elseif selectedOption == 4 then
-
-                love.event.quit()
-
-            end
-
-        end
-
-        return
-
-    end
 
     if key == "space"
        and player.isCharging then

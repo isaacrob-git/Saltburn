@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="25" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="59">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="25" height="19" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="59">
  <editorsettings>
   <export target="room7.lua" format="lua"/>
  </editorsettings>
@@ -24,27 +24,273 @@
  <tileset firstgid="1826" name="walls" tilewidth="32" tileheight="32" tilecount="256" columns="16">
   <image source="../assets/tilesets/walls.png" width="512" height="512"/>
  </tileset>
- <layer id="1" name="Tile Layer 1" width="25" height="19">
+ <tileset firstgid="2082" name="GandalfHardcore Animated Water Tiles" tilewidth="32" tileheight="32" tilecount="220" columns="20">
+  <image source="../assets/tilesets/GandalfHardcore Animated Water Tiles.png" width="640" height="352"/>
+  <tile id="0">
+   <animation>
+    <frame tileid="0" duration="100"/>
+    <frame tileid="1" duration="100"/>
+    <frame tileid="2" duration="100"/>
+    <frame tileid="3" duration="100"/>
+    <frame tileid="4" duration="100"/>
+    <frame tileid="5" duration="100"/>
+    <frame tileid="6" duration="100"/>
+    <frame tileid="7" duration="100"/>
+    <frame tileid="8" duration="100"/>
+    <frame tileid="9" duration="100"/>
+    <frame tileid="10" duration="100"/>
+    <frame tileid="11" duration="100"/>
+    <frame tileid="12" duration="100"/>
+    <frame tileid="13" duration="100"/>
+    <frame tileid="14" duration="100"/>
+    <frame tileid="15" duration="100"/>
+    <frame tileid="16" duration="100"/>
+    <frame tileid="17" duration="100"/>
+    <frame tileid="18" duration="100"/>
+    <frame tileid="19" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="20">
+   <animation>
+    <frame tileid="20" duration="100"/>
+    <frame tileid="21" duration="100"/>
+    <frame tileid="22" duration="100"/>
+    <frame tileid="23" duration="100"/>
+    <frame tileid="24" duration="100"/>
+    <frame tileid="25" duration="100"/>
+    <frame tileid="26" duration="100"/>
+    <frame tileid="27" duration="100"/>
+    <frame tileid="28" duration="100"/>
+    <frame tileid="29" duration="100"/>
+    <frame tileid="30" duration="100"/>
+    <frame tileid="31" duration="100"/>
+    <frame tileid="32" duration="100"/>
+    <frame tileid="33" duration="100"/>
+    <frame tileid="34" duration="100"/>
+    <frame tileid="35" duration="100"/>
+    <frame tileid="36" duration="100"/>
+    <frame tileid="37" duration="100"/>
+    <frame tileid="38" duration="100"/>
+    <frame tileid="39" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="40">
+   <animation>
+    <frame tileid="40" duration="100"/>
+    <frame tileid="41" duration="100"/>
+    <frame tileid="42" duration="100"/>
+    <frame tileid="43" duration="100"/>
+    <frame tileid="44" duration="100"/>
+    <frame tileid="45" duration="100"/>
+    <frame tileid="46" duration="100"/>
+    <frame tileid="47" duration="100"/>
+    <frame tileid="48" duration="100"/>
+    <frame tileid="49" duration="100"/>
+    <frame tileid="50" duration="100"/>
+    <frame tileid="51" duration="100"/>
+    <frame tileid="52" duration="100"/>
+    <frame tileid="53" duration="100"/>
+    <frame tileid="54" duration="100"/>
+    <frame tileid="55" duration="100"/>
+    <frame tileid="56" duration="100"/>
+    <frame tileid="57" duration="100"/>
+    <frame tileid="58" duration="100"/>
+    <frame tileid="59" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="60">
+   <animation>
+    <frame tileid="60" duration="100"/>
+    <frame tileid="61" duration="100"/>
+    <frame tileid="62" duration="100"/>
+    <frame tileid="63" duration="100"/>
+    <frame tileid="64" duration="100"/>
+    <frame tileid="65" duration="100"/>
+    <frame tileid="66" duration="100"/>
+    <frame tileid="67" duration="100"/>
+    <frame tileid="68" duration="100"/>
+    <frame tileid="69" duration="100"/>
+    <frame tileid="70" duration="100"/>
+    <frame tileid="71" duration="100"/>
+    <frame tileid="72" duration="100"/>
+    <frame tileid="73" duration="100"/>
+    <frame tileid="74" duration="100"/>
+    <frame tileid="75" duration="100"/>
+    <frame tileid="76" duration="100"/>
+    <frame tileid="77" duration="100"/>
+    <frame tileid="78" duration="100"/>
+    <frame tileid="79" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="80">
+   <animation>
+    <frame tileid="80" duration="100"/>
+    <frame tileid="81" duration="100"/>
+    <frame tileid="82" duration="100"/>
+    <frame tileid="83" duration="100"/>
+    <frame tileid="84" duration="100"/>
+    <frame tileid="85" duration="100"/>
+    <frame tileid="86" duration="100"/>
+    <frame tileid="87" duration="100"/>
+    <frame tileid="88" duration="100"/>
+    <frame tileid="89" duration="100"/>
+    <frame tileid="90" duration="100"/>
+    <frame tileid="91" duration="100"/>
+    <frame tileid="92" duration="100"/>
+    <frame tileid="93" duration="100"/>
+    <frame tileid="94" duration="100"/>
+    <frame tileid="95" duration="100"/>
+    <frame tileid="96" duration="100"/>
+    <frame tileid="97" duration="100"/>
+    <frame tileid="98" duration="100"/>
+    <frame tileid="99" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="100">
+   <animation>
+    <frame tileid="100" duration="100"/>
+    <frame tileid="101" duration="100"/>
+    <frame tileid="102" duration="100"/>
+    <frame tileid="103" duration="100"/>
+    <frame tileid="104" duration="100"/>
+    <frame tileid="105" duration="100"/>
+    <frame tileid="106" duration="100"/>
+    <frame tileid="107" duration="100"/>
+    <frame tileid="108" duration="100"/>
+    <frame tileid="109" duration="100"/>
+    <frame tileid="110" duration="100"/>
+    <frame tileid="111" duration="100"/>
+    <frame tileid="112" duration="100"/>
+    <frame tileid="113" duration="100"/>
+    <frame tileid="114" duration="100"/>
+    <frame tileid="115" duration="100"/>
+    <frame tileid="116" duration="100"/>
+    <frame tileid="117" duration="100"/>
+    <frame tileid="118" duration="100"/>
+    <frame tileid="119" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="120">
+   <animation>
+    <frame tileid="120" duration="100"/>
+    <frame tileid="121" duration="100"/>
+    <frame tileid="122" duration="100"/>
+    <frame tileid="123" duration="100"/>
+    <frame tileid="124" duration="100"/>
+    <frame tileid="125" duration="100"/>
+    <frame tileid="126" duration="100"/>
+    <frame tileid="127" duration="100"/>
+    <frame tileid="128" duration="100"/>
+    <frame tileid="129" duration="100"/>
+    <frame tileid="130" duration="100"/>
+    <frame tileid="132" duration="100"/>
+    <frame tileid="133" duration="100"/>
+    <frame tileid="134" duration="100"/>
+    <frame tileid="135" duration="100"/>
+    <frame tileid="136" duration="100"/>
+    <frame tileid="137" duration="100"/>
+    <frame tileid="138" duration="100"/>
+    <frame tileid="139" duration="100"/>
+   </animation>
+  </tile>
+  <tile id="140">
+   <animation>
+    <frame tileid="140" duration="100"/>
+    <frame tileid="141" duration="100"/>
+    <frame tileid="142" duration="100"/>
+    <frame tileid="143" duration="100"/>
+    <frame tileid="144" duration="100"/>
+    <frame tileid="145" duration="100"/>
+    <frame tileid="146" duration="100"/>
+    <frame tileid="147" duration="100"/>
+    <frame tileid="148" duration="100"/>
+    <frame tileid="149" duration="100"/>
+    <frame tileid="150" duration="100"/>
+    <frame tileid="151" duration="100"/>
+    <frame tileid="152" duration="100"/>
+    <frame tileid="153" duration="100"/>
+    <frame tileid="154" duration="100"/>
+    <frame tileid="155" duration="100"/>
+    <frame tileid="156" duration="100"/>
+    <frame tileid="157" duration="100"/>
+    <frame tileid="158" duration="100"/>
+    <frame tileid="159" duration="100"/>
+   </animation>
+  </tile>
+ </tileset>
+ <tileset firstgid="2302" name="GandalfHardcore Water Tiles sheet" tilewidth="32" tileheight="32" tilecount="30" columns="5">
+  <image source="../assets/tilesets/GandalfHardcore Water Tiles sheet.png" width="160" height="192"/>
+ </tileset>
+ <tileset firstgid="2332" name="BG Dirt1" tilewidth="32" tileheight="32" tilecount="24" columns="6">
+  <image source="../assets/tilesets/BG Dirt1.png" width="192" height="128"/>
+ </tileset>
+ <layer id="7" name="back" width="25" height="19">
   <data encoding="csv">
-228,228,228,228,228,228,228,228,228,228,228,0,0,0,0,0,228,228,228,228,228,228,0,0,0,
-228,228,228,228,228,228,228,228,228,228,228,0,0,0,0,0,228,228,228,228,228,228,0,0,0,
-244,0,0,0,0,0,0,0,0,228,228,0,0,0,0,0,0,0,0,0,0,228,0,0,0,
-244,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,228,
-244,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,228,
-244,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,228,228,228,228,228,228,228,228,
-244,0,0,244,228,228,228,0,0,0,0,0,0,0,0,0,0,228,228,228,228,228,228,228,228,
-244,0,0,0,0,0,228,0,0,0,0,0,0,0,0,0,0,228,228,228,228,228,228,228,228,
-244,0,0,0,0,0,228,228,228,228,228,0,0,0,0,0,0,228,228,228,228,228,228,228,228,
-244,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,228,228,228,228,228,228,228,228,
-244,228,228,0,0,0,0,0,0,0,0,0,0,0,0,0,0,228,228,228,228,228,228,228,228,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,228,228,228,228,228,228,228,228,
+2347,0,0,0,0,0,0,0,0,0,2349,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+2347,2347,2347,2347,2347,2347,2347,2347,2347,2347,2349,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+2347,2347,2347,2347,2347,2347,2347,2347,2347,2347,2349,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+2347,2347,2347,2347,2347,2347,2347,2347,2347,2347,2349,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+2347,2347,2347,2347,2347,2347,2347,2347,2347,2347,2349,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+2347,2347,2347,2347,2347,2347,2347,2347,2347,2347,2347,2343,0,0,0,0,0,0,0,0,0,0,0,0,0,
+2347,2347,2347,2347,2347,2347,2347,2347,2347,2347,2347,2342,2343,0,0,0,2345,2347,2347,2347,2347,2347,2347,2347,2347,
+2347,2347,2347,2347,2347,2347,2347,2347,2347,2347,2347,2347,2349,0,0,0,2351,2352,2347,2347,2347,2347,2347,2347,2347,
+2347,2347,2347,2347,2347,2347,2347,2347,2347,2347,2347,2347,2349,0,0,0,0,2345,2347,2347,2347,2347,2347,2347,2347,
+2347,2347,2347,2347,2347,2354,2353,2353,2353,2353,2353,2353,2355,0,0,0,0,2345,2347,2347,2347,2347,2347,2347,2347,
+0,0,2347,2347,2354,2355,0,0,0,0,0,0,0,0,0,0,0,2345,0,0,0,0,0,0,0,
+2352,2347,2347,2347,2349,0,0,0,0,0,0,0,0,0,0,0,0,2345,0,0,0,0,0,0,0,
+2351,2353,2353,2353,2355,0,0,0,0,0,0,0,0,0,0,0,0,2345,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2351,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,228,228,228,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,798,0,798,799,800,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,829,830,829,830,831,830,831,830,831,832,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,861,862,861,862,863,862,863,862,863,864,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,228,228,228,228,228,228,228,228,228,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,228,228,244,244,244,244,244,244,228,0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer id="1" name="ground" width="25" height="19">
+  <data encoding="csv">
+65,65,65,65,65,65,65,65,65,65,66,0,0,0,0,0,64,65,65,65,65,66,0,0,0,
+61,62,62,89,62,62,62,62,90,63,66,0,0,0,0,0,101,74,74,74,117,66,0,0,0,
+66,0,0,98,0,0,0,0,99,73,75,0,0,0,0,0,0,0,0,0,101,75,0,0,0,
+66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,55,
+66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,64,
+66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,55,56,56,56,56,56,56,56,81,
+66,0,0,91,107,107,60,0,0,0,0,0,0,0,0,0,73,143,74,144,143,74,74,8,9,
+66,0,0,0,0,0,69,0,0,0,0,0,0,0,0,0,0,152,0,153,152,0,0,0,149,
+66,0,0,0,0,0,76,59,59,59,108,0,0,0,0,0,0,0,0,0,0,0,0,0,72,
+66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2142,2122,2122,2122,2122,2102,80,81,
+79,56,57,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2162,2242,2243,2243,2243,65,65,65,
+128,74,75,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2162,2262,65,65,65,65,65,65,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2162,2262,65,65,65,61,74,74,
+0,0,0,0,0,106,107,108,0,0,0,0,0,0,0,0,0,2162,2283,20,20,20,75,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,798,0,798,799,2162,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2182,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,55,56,56,56,56,56,2082,2122,2122,2202,2222,2122,2102,57,0,0,0,
+0,0,0,0,0,0,0,0,64,65,65,65,65,65,11,2243,2243,2243,2243,2243,65,66,0,0,0,
+0,0,0,0,0,0,0,0,64,65,65,65,65,65,65,65,65,65,65,65,65,66,0,0,0
+</data>
+ </layer>
+ <layer id="8" name="Tile Layer 3" width="25" height="19">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
  <objectgroup id="3" name="Collisions" visible="0">

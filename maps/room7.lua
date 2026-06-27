@@ -9,7 +9,7 @@ return {
   height = 19,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 7,
+  nextlayerid = 9,
   nextobjectid = 59,
   properties = {},
   tilesets = {
@@ -99,6 +99,886 @@ return {
       wangsets = {},
       tilecount = 64,
       tiles = {}
+    },
+    {
+      name = "TX Tileset Ground",
+      firstgid = 290,
+      class = "",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 16,
+      image = "../assets/tilesets/TX Tileset Ground.png",
+      imagewidth = 512,
+      imageheight = 512,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 256,
+      tiles = {}
+    },
+    {
+      name = "TX Village Props",
+      firstgid = 546,
+      class = "",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 32,
+      image = "../assets/tilesets/TX Village Props.png",
+      imagewidth = 1024,
+      imageheight = 1024,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 1024,
+      tiles = {}
+    },
+    {
+      name = "env_objects",
+      firstgid = 1570,
+      class = "",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 16,
+      image = "../assets/tilesets/env_objects.png",
+      imagewidth = 512,
+      imageheight = 512,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 256,
+      tiles = {}
+    },
+    {
+      name = "walls",
+      firstgid = 1826,
+      class = "",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 16,
+      image = "../assets/tilesets/walls.png",
+      imagewidth = 512,
+      imageheight = 512,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 256,
+      tiles = {}
+    },
+    {
+      name = "GandalfHardcore Animated Water Tiles",
+      firstgid = 2082,
+      class = "",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 20,
+      image = "../assets/tilesets/GandalfHardcore Animated Water Tiles.png",
+      imagewidth = 640,
+      imageheight = 352,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 220,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 100
+            },
+            {
+              tileid = 1,
+              duration = 100
+            },
+            {
+              tileid = 2,
+              duration = 100
+            },
+            {
+              tileid = 3,
+              duration = 100
+            },
+            {
+              tileid = 4,
+              duration = 100
+            },
+            {
+              tileid = 5,
+              duration = 100
+            },
+            {
+              tileid = 6,
+              duration = 100
+            },
+            {
+              tileid = 7,
+              duration = 100
+            },
+            {
+              tileid = 8,
+              duration = 100
+            },
+            {
+              tileid = 9,
+              duration = 100
+            },
+            {
+              tileid = 10,
+              duration = 100
+            },
+            {
+              tileid = 11,
+              duration = 100
+            },
+            {
+              tileid = 12,
+              duration = 100
+            },
+            {
+              tileid = 13,
+              duration = 100
+            },
+            {
+              tileid = 14,
+              duration = 100
+            },
+            {
+              tileid = 15,
+              duration = 100
+            },
+            {
+              tileid = 16,
+              duration = 100
+            },
+            {
+              tileid = 17,
+              duration = 100
+            },
+            {
+              tileid = 18,
+              duration = 100
+            },
+            {
+              tileid = 19,
+              duration = 100
+            }
+          }
+        },
+        {
+          id = 20,
+          animation = {
+            {
+              tileid = 20,
+              duration = 100
+            },
+            {
+              tileid = 21,
+              duration = 100
+            },
+            {
+              tileid = 22,
+              duration = 100
+            },
+            {
+              tileid = 23,
+              duration = 100
+            },
+            {
+              tileid = 24,
+              duration = 100
+            },
+            {
+              tileid = 25,
+              duration = 100
+            },
+            {
+              tileid = 26,
+              duration = 100
+            },
+            {
+              tileid = 27,
+              duration = 100
+            },
+            {
+              tileid = 28,
+              duration = 100
+            },
+            {
+              tileid = 29,
+              duration = 100
+            },
+            {
+              tileid = 30,
+              duration = 100
+            },
+            {
+              tileid = 31,
+              duration = 100
+            },
+            {
+              tileid = 32,
+              duration = 100
+            },
+            {
+              tileid = 33,
+              duration = 100
+            },
+            {
+              tileid = 34,
+              duration = 100
+            },
+            {
+              tileid = 35,
+              duration = 100
+            },
+            {
+              tileid = 36,
+              duration = 100
+            },
+            {
+              tileid = 37,
+              duration = 100
+            },
+            {
+              tileid = 38,
+              duration = 100
+            },
+            {
+              tileid = 39,
+              duration = 100
+            }
+          }
+        },
+        {
+          id = 40,
+          animation = {
+            {
+              tileid = 40,
+              duration = 100
+            },
+            {
+              tileid = 41,
+              duration = 100
+            },
+            {
+              tileid = 42,
+              duration = 100
+            },
+            {
+              tileid = 43,
+              duration = 100
+            },
+            {
+              tileid = 44,
+              duration = 100
+            },
+            {
+              tileid = 45,
+              duration = 100
+            },
+            {
+              tileid = 46,
+              duration = 100
+            },
+            {
+              tileid = 47,
+              duration = 100
+            },
+            {
+              tileid = 48,
+              duration = 100
+            },
+            {
+              tileid = 49,
+              duration = 100
+            },
+            {
+              tileid = 50,
+              duration = 100
+            },
+            {
+              tileid = 51,
+              duration = 100
+            },
+            {
+              tileid = 52,
+              duration = 100
+            },
+            {
+              tileid = 53,
+              duration = 100
+            },
+            {
+              tileid = 54,
+              duration = 100
+            },
+            {
+              tileid = 55,
+              duration = 100
+            },
+            {
+              tileid = 56,
+              duration = 100
+            },
+            {
+              tileid = 57,
+              duration = 100
+            },
+            {
+              tileid = 58,
+              duration = 100
+            },
+            {
+              tileid = 59,
+              duration = 100
+            }
+          }
+        },
+        {
+          id = 60,
+          animation = {
+            {
+              tileid = 60,
+              duration = 100
+            },
+            {
+              tileid = 61,
+              duration = 100
+            },
+            {
+              tileid = 62,
+              duration = 100
+            },
+            {
+              tileid = 63,
+              duration = 100
+            },
+            {
+              tileid = 64,
+              duration = 100
+            },
+            {
+              tileid = 65,
+              duration = 100
+            },
+            {
+              tileid = 66,
+              duration = 100
+            },
+            {
+              tileid = 67,
+              duration = 100
+            },
+            {
+              tileid = 68,
+              duration = 100
+            },
+            {
+              tileid = 69,
+              duration = 100
+            },
+            {
+              tileid = 70,
+              duration = 100
+            },
+            {
+              tileid = 71,
+              duration = 100
+            },
+            {
+              tileid = 72,
+              duration = 100
+            },
+            {
+              tileid = 73,
+              duration = 100
+            },
+            {
+              tileid = 74,
+              duration = 100
+            },
+            {
+              tileid = 75,
+              duration = 100
+            },
+            {
+              tileid = 76,
+              duration = 100
+            },
+            {
+              tileid = 77,
+              duration = 100
+            },
+            {
+              tileid = 78,
+              duration = 100
+            },
+            {
+              tileid = 79,
+              duration = 100
+            }
+          }
+        },
+        {
+          id = 80,
+          animation = {
+            {
+              tileid = 80,
+              duration = 100
+            },
+            {
+              tileid = 81,
+              duration = 100
+            },
+            {
+              tileid = 82,
+              duration = 100
+            },
+            {
+              tileid = 83,
+              duration = 100
+            },
+            {
+              tileid = 84,
+              duration = 100
+            },
+            {
+              tileid = 85,
+              duration = 100
+            },
+            {
+              tileid = 86,
+              duration = 100
+            },
+            {
+              tileid = 87,
+              duration = 100
+            },
+            {
+              tileid = 88,
+              duration = 100
+            },
+            {
+              tileid = 89,
+              duration = 100
+            },
+            {
+              tileid = 90,
+              duration = 100
+            },
+            {
+              tileid = 91,
+              duration = 100
+            },
+            {
+              tileid = 92,
+              duration = 100
+            },
+            {
+              tileid = 93,
+              duration = 100
+            },
+            {
+              tileid = 94,
+              duration = 100
+            },
+            {
+              tileid = 95,
+              duration = 100
+            },
+            {
+              tileid = 96,
+              duration = 100
+            },
+            {
+              tileid = 97,
+              duration = 100
+            },
+            {
+              tileid = 98,
+              duration = 100
+            },
+            {
+              tileid = 99,
+              duration = 100
+            }
+          }
+        },
+        {
+          id = 100,
+          animation = {
+            {
+              tileid = 100,
+              duration = 100
+            },
+            {
+              tileid = 101,
+              duration = 100
+            },
+            {
+              tileid = 102,
+              duration = 100
+            },
+            {
+              tileid = 103,
+              duration = 100
+            },
+            {
+              tileid = 104,
+              duration = 100
+            },
+            {
+              tileid = 105,
+              duration = 100
+            },
+            {
+              tileid = 106,
+              duration = 100
+            },
+            {
+              tileid = 107,
+              duration = 100
+            },
+            {
+              tileid = 108,
+              duration = 100
+            },
+            {
+              tileid = 109,
+              duration = 100
+            },
+            {
+              tileid = 110,
+              duration = 100
+            },
+            {
+              tileid = 111,
+              duration = 100
+            },
+            {
+              tileid = 112,
+              duration = 100
+            },
+            {
+              tileid = 113,
+              duration = 100
+            },
+            {
+              tileid = 114,
+              duration = 100
+            },
+            {
+              tileid = 115,
+              duration = 100
+            },
+            {
+              tileid = 116,
+              duration = 100
+            },
+            {
+              tileid = 117,
+              duration = 100
+            },
+            {
+              tileid = 118,
+              duration = 100
+            },
+            {
+              tileid = 119,
+              duration = 100
+            }
+          }
+        },
+        {
+          id = 120,
+          animation = {
+            {
+              tileid = 120,
+              duration = 100
+            },
+            {
+              tileid = 121,
+              duration = 100
+            },
+            {
+              tileid = 122,
+              duration = 100
+            },
+            {
+              tileid = 123,
+              duration = 100
+            },
+            {
+              tileid = 124,
+              duration = 100
+            },
+            {
+              tileid = 125,
+              duration = 100
+            },
+            {
+              tileid = 126,
+              duration = 100
+            },
+            {
+              tileid = 127,
+              duration = 100
+            },
+            {
+              tileid = 128,
+              duration = 100
+            },
+            {
+              tileid = 129,
+              duration = 100
+            },
+            {
+              tileid = 130,
+              duration = 100
+            },
+            {
+              tileid = 132,
+              duration = 100
+            },
+            {
+              tileid = 133,
+              duration = 100
+            },
+            {
+              tileid = 134,
+              duration = 100
+            },
+            {
+              tileid = 135,
+              duration = 100
+            },
+            {
+              tileid = 136,
+              duration = 100
+            },
+            {
+              tileid = 137,
+              duration = 100
+            },
+            {
+              tileid = 138,
+              duration = 100
+            },
+            {
+              tileid = 139,
+              duration = 100
+            }
+          }
+        },
+        {
+          id = 140,
+          animation = {
+            {
+              tileid = 140,
+              duration = 100
+            },
+            {
+              tileid = 141,
+              duration = 100
+            },
+            {
+              tileid = 142,
+              duration = 100
+            },
+            {
+              tileid = 143,
+              duration = 100
+            },
+            {
+              tileid = 144,
+              duration = 100
+            },
+            {
+              tileid = 145,
+              duration = 100
+            },
+            {
+              tileid = 146,
+              duration = 100
+            },
+            {
+              tileid = 147,
+              duration = 100
+            },
+            {
+              tileid = 148,
+              duration = 100
+            },
+            {
+              tileid = 149,
+              duration = 100
+            },
+            {
+              tileid = 150,
+              duration = 100
+            },
+            {
+              tileid = 151,
+              duration = 100
+            },
+            {
+              tileid = 152,
+              duration = 100
+            },
+            {
+              tileid = 153,
+              duration = 100
+            },
+            {
+              tileid = 154,
+              duration = 100
+            },
+            {
+              tileid = 155,
+              duration = 100
+            },
+            {
+              tileid = 156,
+              duration = 100
+            },
+            {
+              tileid = 157,
+              duration = 100
+            },
+            {
+              tileid = 158,
+              duration = 100
+            },
+            {
+              tileid = 159,
+              duration = 100
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "GandalfHardcore Water Tiles sheet",
+      firstgid = 2302,
+      class = "",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 5,
+      image = "../assets/tilesets/GandalfHardcore Water Tiles sheet.png",
+      imagewidth = 160,
+      imageheight = 192,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 30,
+      tiles = {}
+    },
+    {
+      name = "BG Dirt1",
+      firstgid = 2332,
+      class = "",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 6,
+      image = "../assets/tilesets/BG Dirt1.png",
+      imagewidth = 192,
+      imageheight = 128,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 24,
+      tiles = {}
     }
   },
   layers = {
@@ -108,8 +988,8 @@ return {
       y = 0,
       width = 25,
       height = 19,
-      id = 1,
-      name = "Tile Layer 1",
+      id = 7,
+      name = "back",
       class = "",
       visible = true,
       opacity = 1,
@@ -120,25 +1000,103 @@ return {
       properties = {},
       encoding = "lua",
       data = {
-        228, 228, 228, 228, 228, 228, 228, 228, 228, 228, 228, 0, 0, 0, 0, 0, 228, 228, 228, 228, 228, 228, 0, 0, 0,
-        228, 228, 228, 228, 228, 228, 228, 228, 228, 228, 228, 0, 0, 0, 0, 0, 228, 228, 228, 228, 228, 228, 0, 0, 0,
-        244, 0, 0, 0, 0, 0, 0, 0, 0, 228, 228, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 228, 0, 0, 0,
-        244, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 228,
-        244, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 228,
-        244, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 228, 228, 228, 228, 228, 228, 228, 228,
-        244, 0, 0, 244, 228, 228, 228, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 228, 228, 228, 228, 228, 228, 228, 228,
-        244, 0, 0, 0, 0, 0, 228, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 228, 228, 228, 228, 228, 228, 228, 228,
-        244, 0, 0, 0, 0, 0, 228, 228, 228, 228, 228, 0, 0, 0, 0, 0, 0, 228, 228, 228, 228, 228, 228, 228, 228,
-        244, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 228, 228, 228, 228, 228, 228, 228, 228,
-        244, 228, 228, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 228, 228, 228, 228, 228, 228, 228, 228,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 228, 228, 228, 228, 228, 228, 228, 228,
+        2347, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2349, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2349, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2349, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2349, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2349, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2343, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2342, 2343, 0, 0, 0, 2345, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347,
+        2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2349, 0, 0, 0, 2351, 2352, 2347, 2347, 2347, 2347, 2347, 2347, 2347,
+        2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2347, 2349, 0, 0, 0, 0, 2345, 2347, 2347, 2347, 2347, 2347, 2347, 2347,
+        2347, 2347, 2347, 2347, 2347, 2354, 2353, 2353, 2353, 2353, 2353, 2353, 2355, 0, 0, 0, 0, 2345, 2347, 2347, 2347, 2347, 2347, 2347, 2347,
+        0, 0, 2347, 2347, 2354, 2355, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2345, 0, 0, 0, 0, 0, 0, 0,
+        2352, 2347, 2347, 2347, 2349, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2345, 0, 0, 0, 0, 0, 0, 0,
+        2351, 2353, 2353, 2353, 2355, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2345, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2351, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 228, 228, 228, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 228, 228, 228, 228, 228, 228, 228, 228, 228, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 228, 228, 244, 244, 244, 244, 244, 244, 228, 0, 0, 0, 0, 0, 0, 0, 0
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+      }
+    },
+    {
+      type = "tilelayer",
+      x = 0,
+      y = 0,
+      width = 25,
+      height = 19,
+      id = 1,
+      name = "ground",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      encoding = "lua",
+      data = {
+        65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 66, 0, 0, 0, 0, 0, 64, 65, 65, 65, 65, 66, 0, 0, 0,
+        61, 62, 62, 89, 62, 62, 62, 62, 90, 63, 66, 0, 0, 0, 0, 0, 101, 74, 74, 74, 117, 66, 0, 0, 0,
+        66, 0, 0, 98, 0, 0, 0, 0, 99, 73, 75, 0, 0, 0, 0, 0, 0, 0, 0, 0, 101, 75, 0, 0, 0,
+        66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 55,
+        66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64,
+        66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 55, 56, 56, 56, 56, 56, 56, 56, 81,
+        66, 0, 0, 91, 107, 107, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 73, 143, 74, 144, 143, 74, 74, 8, 9,
+        66, 0, 0, 0, 0, 0, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 152, 0, 153, 152, 0, 0, 0, 149,
+        66, 0, 0, 0, 0, 0, 76, 59, 59, 59, 108, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 72,
+        66, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2142, 2122, 2122, 2122, 2122, 2102, 80, 81,
+        79, 56, 57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2162, 2242, 2243, 2243, 2243, 65, 65, 65,
+        128, 74, 75, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2162, 2262, 65, 65, 65, 65, 65, 65,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2162, 2262, 65, 65, 65, 61, 74, 74,
+        0, 0, 0, 0, 0, 106, 107, 108, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2162, 2283, 20, 20, 20, 75, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 798, 0, 798, 799, 2162, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2182, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 55, 56, 56, 56, 56, 56, 2082, 2122, 2122, 2202, 2222, 2122, 2102, 57, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 64, 65, 65, 65, 65, 65, 11, 2243, 2243, 2243, 2243, 2243, 65, 66, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 64, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 66, 0, 0, 0
+      }
+    },
+    {
+      type = "tilelayer",
+      x = 0,
+      y = 0,
+      width = 25,
+      height = 19,
+      id = 8,
+      name = "Tile Layer 3",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      encoding = "lua",
+      data = {
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
       }
     },
     {
