@@ -9,8 +9,8 @@ return {
   height = 19,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 9,
-  nextobjectid = 59,
+  nextlayerid = 12,
+  nextobjectid = 68,
   properties = {},
   tilesets = {
     {
@@ -979,6 +979,392 @@ return {
       wangsets = {},
       tilecount = 24,
       tiles = {}
+    },
+    {
+      name = "Pixel Art Furnace and Sawmill",
+      firstgid = 2356,
+      class = "",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 12,
+      image = "../assets/tilesets/Pixel Art Furnace and Sawmill.png",
+      imagewidth = 384,
+      imageheight = 128,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 48,
+      tiles = {}
+    },
+    {
+      name = "Angel Statue",
+      firstgid = 2404,
+      class = "",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 2,
+      image = "../assets/tilesets/Angel Statue.png",
+      imagewidth = 64,
+      imageheight = 64,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 4,
+      tiles = {}
+    },
+    {
+      name = "Decor",
+      firstgid = 2408,
+      class = "",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 13,
+      image = "../assets/tilesets/Decor.png",
+      imagewidth = 416,
+      imageheight = 544,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 221,
+      tiles = {}
+    },
+    {
+      name = "Torch",
+      firstgid = 2629,
+      class = "",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 6,
+      image = "../assets/tilesets/Torch.png",
+      imagewidth = 192,
+      imageheight = 128,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 24,
+      tiles = {
+        {
+          id = 12,
+          animation = {
+            {
+              tileid = 12,
+              duration = 100
+            },
+            {
+              tileid = 13,
+              duration = 100
+            },
+            {
+              tileid = 14,
+              duration = 100
+            },
+            {
+              tileid = 15,
+              duration = 100
+            },
+            {
+              tileid = 16,
+              duration = 100
+            },
+            {
+              tileid = 17,
+              duration = 100
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "GandalfHardcore Portal sheet",
+      firstgid = 2653,
+      class = "",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 20,
+      image = "../assets/tilesets/GandalfHardcore Portal sheet.png",
+      imagewidth = 640,
+      imageheight = 64,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 40,
+      tiles = {}
+    },
+    {
+      name = "Campfire with food sheet",
+      firstgid = 2693,
+      class = "",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 5,
+      image = "../assets/tilesets/Campfire with food sheet.png",
+      imagewidth = 160,
+      imageheight = 256,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 40,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 100
+            },
+            {
+              tileid = 1,
+              duration = 100
+            },
+            {
+              tileid = 2,
+              duration = 100
+            },
+            {
+              tileid = 3,
+              duration = 100
+            },
+            {
+              tileid = 4,
+              duration = 100
+            },
+            {
+              tileid = 5,
+              duration = 100
+            },
+            {
+              tileid = 6,
+              duration = 100
+            },
+            {
+              tileid = 7,
+              duration = 100
+            },
+            {
+              tileid = 8,
+              duration = 100
+            },
+            {
+              tileid = 9,
+              duration = 100
+            },
+            {
+              tileid = 10,
+              duration = 100
+            },
+            {
+              tileid = 11,
+              duration = 100
+            },
+            {
+              tileid = 12,
+              duration = 100
+            },
+            {
+              tileid = 13,
+              duration = 100
+            },
+            {
+              tileid = 14,
+              duration = 100
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "Weeping Willow1",
+      firstgid = 2733,
+      class = "",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 7,
+      image = "../assets/tilesets/Weeping Willow1.png",
+      imagewidth = 224,
+      imageheight = 192,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 42,
+      tiles = {}
+    },
+    {
+      name = "Tree2",
+      firstgid = 2775,
+      class = "",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 8,
+      image = "../assets/tilesets/Tree2.png",
+      imagewidth = 256,
+      imageheight = 208,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 48,
+      tiles = {}
+    },
+    {
+      name = "Flowering Tree",
+      firstgid = 2823,
+      class = "",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 3,
+      image = "../assets/tilesets/Flowering Tree.png",
+      imagewidth = 96,
+      imageheight = 112,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 9,
+      tiles = {}
+    },
+    {
+      name = "Garden Decorations",
+      firstgid = 2832,
+      class = "",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 7,
+      image = "../assets/tilesets/Garden Decorations.png",
+      imagewidth = 224,
+      imageheight = 128,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 28,
+      tiles = {}
     }
   },
   layers = {
@@ -1014,9 +1400,9 @@ return {
         2352, 2347, 2347, 2347, 2349, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2345, 0, 0, 0, 0, 0, 0, 0,
         2351, 2353, 2353, 2353, 2355, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2345, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2351, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 1176, 1216, 1178, 1179, 1180, 1181, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 1208, 1209, 1210, 1211, 1212, 1213, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2341, 2341, 2341, 2341, 2341, 2341, 2341, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
       }
@@ -1067,7 +1453,124 @@ return {
       width = 25,
       height = 19,
       id = 8,
-      name = "Tile Layer 3",
+      name = "decor",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      encoding = "lua",
+      data = {
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 2641, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2465, 2476, 0, 0, 0, 2489, 2464, 2476, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 2641, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2147486172, 0,
+        0, 0, 0, 2641, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2147486185, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 2733, 2734, 2735, 2736, 2737, 2738, 2739, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 2740, 2741, 2742, 2743, 2744, 2745, 2746, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 2747, 2748, 2749, 2750, 2751, 2752, 2753, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 2754, 2755, 2756, 2757, 2758, 2759, 2760, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 2761, 2762, 2763, 2764, 2765, 2766, 2767, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 2768, 2769, 2770, 2771, 2772, 2773, 2774, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+      }
+    },
+    {
+      type = "tilelayer",
+      x = 0,
+      y = 0,
+      width = 25,
+      height = 19,
+      id = 9,
+      name = "decor 2",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      encoding = "lua",
+      data = {
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2518, 2519, 2520, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2531, 2532, 2533, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2464, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+      }
+    },
+    {
+      type = "tilelayer",
+      x = 0,
+      y = 0,
+      width = 25,
+      height = 19,
+      id = 10,
+      name = "Tile Layer 5",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      encoding = "lua",
+      data = {
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2693, 2414, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 2464, 2464, 2489, 2502, 2489, 774, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+      }
+    },
+    {
+      type = "tilelayer",
+      x = 0,
+      y = 0,
+      width = 25,
+      height = 19,
+      id = 11,
+      name = "Tile Layer 6",
       class = "",
       visible = true,
       opacity = 1,
@@ -1083,6 +1586,7 @@ return {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 1123, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -1092,8 +1596,7 @@ return {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 2498, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2453, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
@@ -1118,10 +1621,10 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 255,
-          y = 544.5,
-          width = 288.5,
-          height = 63.5,
+          x = 257,
+          y = 512.417,
+          width = 202.083,
+          height = 95.5833,
           rotation = 0,
           opacity = 1,
           visible = true,
@@ -1146,10 +1649,10 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 544,
+          x = 512.667,
           y = 160.667,
-          width = 256.667,
-          height = 222,
+          width = 288,
+          height = 58,
           rotation = 0,
           opacity = 1,
           visible = true,
@@ -1203,9 +1706,9 @@ return {
           type = "",
           shape = "rectangle",
           x = 95.6667,
-          y = 192.667,
+          y = 192.303,
           width = 127.667,
-          height = 31,
+          height = 31.3636,
           rotation = 0,
           opacity = 1,
           visible = true,
@@ -1217,9 +1720,9 @@ return {
           type = "",
           shape = "rectangle",
           x = 192.333,
-          y = 193,
+          y = 195.364,
           width = 31.6667,
-          height = 94.6667,
+          height = 92.3031,
           rotation = 0,
           opacity = 1,
           visible = true,
@@ -1272,10 +1775,10 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 671.333,
+          x = 640.666,
           y = 0.333333,
-          width = 31.6667,
-          height = 95.3333,
+          width = 62.3334,
+          height = 93.3333,
           rotation = 0,
           opacity = 1,
           visible = true,
@@ -1290,6 +1793,76 @@ return {
           y = 0.333333,
           width = 190.667,
           height = 63.6667,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 63,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 659.583,
+          y = 512.667,
+          width = 42.0833,
+          height = 93.6667,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 61,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 444.333,
+          y = 538.667,
+          width = 257.333,
+          height = 69,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 64,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 580.5,
+          y = 318.5,
+          width = 147,
+          height = 121.5,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 65,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 728,
+          y = 289.5,
+          width = 70.5,
+          height = 121.5,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 67,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 770,
+          y = 211.5,
+          width = 30,
+          height = 82,
           rotation = 0,
           opacity = 1,
           visible = true,

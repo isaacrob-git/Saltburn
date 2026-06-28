@@ -26,6 +26,13 @@ function formatTime(seconds)
 
 end
 
+function showNotification(text, duration)
+
+    notificationText = text
+    notificationTimer = duration
+
+end
+
 function tableToString(tbl)
 
     local result = "{"
@@ -85,10 +92,27 @@ function saveGame(slot)
     local serialized =
         "return " .. tableToString(saveData)
 
-    love.filesystem.write(
+   
+    local success = love.filesystem.write(
         "save" .. slot .. ".lua",
         serialized
     )
+
+    if success then
+
+        showNotification(
+            "Partida guardada",
+            3
+        )
+
+    else
+
+        showNotification(
+            "Error al guardar",
+            3
+        )
+
+    end
 
 end
 
@@ -139,7 +163,7 @@ function love.load()
         "Guardar Partida",
         "Cargar Partida",
         "Opciones",
-        "Salir al Menú"
+        "Salir al Menu"
     }
 
     selectedPauseOption = 1
@@ -311,6 +335,12 @@ function love.load()
      -- Boton tester
      debugFly = false
     
+
+    --NOTIFICACIONES
+    notificationText = ""
+    notificationTimer = 0
+
+
 end
 
 function loadBackground(backgroundName)
@@ -399,9 +429,48 @@ function setState(newState)
 
 end
 
+--funcion notificacion
+function drawNotification()
+
+    if notificationTimer <= 0 then
+        return
+    end
+
+    love.graphics.setFont(smallFont)
+
+    love.graphics.setColor(1,1,1)
+
+    love.graphics.printf(
+        notificationText,
+        220,
+        550,
+        500,
+        "center"
+    )
+
+    love.graphics.setColor(1,1,1)
+
+end
+
+--funcion notificacion
+
 function love.update(dt)
 
     map:update(dt)
+
+
+    --notificanciones
+    if notificationTimer > 0 then
+
+        notificationTimer =
+            notificationTimer - dt
+
+        if notificationTimer < 0 then
+            notificationTimer = 0
+        end
+
+    end
+    --notificanciones
 
     if gameState ~= "playing" then
         return
@@ -822,7 +891,6 @@ function love.keypressed(key)
                 elseif selectedPauseOption == 2 then
 
                    saveGame(1)
-                   print("Partida guardada correctamente.")
 
                 elseif selectedPauseOption == 3 then
 
@@ -902,17 +970,7 @@ function love.draw()
             "center"
         )
 
-        
-
-            love.graphics.setFont(smallFont)
-
-            love.graphics.printf(
-                "Version 0.1 Alpha",
-                0,
-                570,
-                800,
-                "left"
-            )
+        love.graphics.setFont(menuFont)
 
         for i, option in ipairs(menuOptions) do
 
@@ -932,8 +990,19 @@ function love.draw()
 
         end
 
-        return
+        love.graphics.setFont(smallFont)
+        
+        love.graphics.printf(
+            "Version 0.1 Alpha",
+            0,
+            570,
+            800,
+            "left"
+        )
 
+        drawNotification()
+        
+        return
 
     end    
 
@@ -1007,6 +1076,8 @@ function love.draw()
 
         end
 
+        drawNotification()
+        
         return
 
     end
