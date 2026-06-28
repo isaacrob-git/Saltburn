@@ -440,13 +440,19 @@ function drawNotification()
 
     love.graphics.setColor(1,1,1)
 
+    local boxWidth = 360
+    local boxHeight = 40
+
+    local boxX = (800 - boxWidth) / 2
+    local boxY = 540
+
     love.graphics.printf(
         notificationText,
-        220,
-        550,
-        500,
+        boxX,
+        boxY + 10,
+        boxWidth,
         "center"
-    )
+)
 
     love.graphics.setColor(1,1,1)
 
