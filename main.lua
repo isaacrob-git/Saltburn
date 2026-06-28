@@ -70,6 +70,7 @@ function tableToString(tbl)
 
 end
 
+--Guardar partida
 function saveGame(slot)
 
     local saveData = {
@@ -113,6 +114,90 @@ function saveGame(slot)
         )
 
     end
+
+end
+
+--Cargar partida
+function loadGame(slot)
+
+    if not love.filesystem.getInfo("save" .. slot .. ".lua") then
+
+        showNotification(
+            "No existe una partida guardada.",
+            3
+        )
+
+        return false
+
+    end
+
+    local chunk =
+        love.filesystem.load(
+            "save" .. slot .. ".lua"
+        )
+
+    local saveData = chunk()
+
+    currentRoom = saveData.room
+    loadRoom(currentRoom)
+
+    player.x = saveData.player.x
+    player.y = saveData.player.y
+    player.facing = saveData.player.facing
+
+    player.velocityX = 0
+    player.velocityY = 0
+
+    player.isGrounded = false
+    player.isCharging = false
+    player.chargeTime = 0
+    setState("idle")
+
+
+    gameTime = saveData.statistics.playTime
+    jumpCount = saveData.statistics.jumps
+
+    showNotification(
+        "Partida cargada correctamente.",
+        3
+    )
+
+    return true
+
+end
+
+--Seleccionar partida
+function newGame()
+
+    currentRoom = 1
+    loadRoom(currentRoom)
+
+    player.x = 380
+    player.y = 280
+
+    player.velocityX = 0
+    player.velocityY = 0
+
+    player.isGrounded = false
+    player.isCharging = false
+    player.chargeTime = 0
+
+    player.facing = 1
+
+    gameTime = 0
+    jumpCount = 0
+
+    setState("idle")
+
+    gameState = "playing"
+
+end
+
+function saveExists(slot)
+
+    return love.filesystem.getInfo(
+        "save" .. slot .. ".lua"
+    ) ~= nil
 
 end
 
@@ -340,7 +425,39 @@ function love.load()
     notificationText = ""
     notificationTimer = 0
 
+    --opciones
+        optionsMenu = {
 
+        {
+            name = "Pantalla completa",
+            value = false
+        },
+
+        {
+            name = "Volumen General",
+            value = 100
+        },
+
+        {
+            name = "Musica",
+            value = 100
+        },
+
+        {
+            name = "Efectos",
+            value = 100
+        },
+
+        {
+            name = "Volver"
+        }
+
+    }
+
+    selectedOptionItem = 1
+
+    optionsReturnState = "menu"
+    --opciones
 end
 
 function loadBackground(backgroundName)
@@ -779,13 +896,19 @@ function love.keypressed(key)
 
                 if selectedOption == 1 then
 
-                    gameState = "playing"
+                    newGame()
 
                 elseif selectedOption == 2 then
 
-                    gameState = "playing"
+                        if loadGame(1) then
+                            gameState = "playing"
+                        end
 
                 elseif selectedOption == 3 then
+
+                    optionsReturnState = "menu"
+
+                    selectedOptionItem = 1
 
                     gameState = "options"
 
@@ -843,7 +966,9 @@ function love.keypressed(key)
     end
     -- modo tester
 
+    
 
+    --pausa
         if key == "escape" then
 
             if gameState == "playing" then
@@ -896,17 +1021,23 @@ function love.keypressed(key)
 
                 elseif selectedPauseOption == 2 then
 
-                   saveGame(1)
+                    saveGame(1)
 
                 elseif selectedPauseOption == 3 then
 
-                    -- Cargar Partida
-                    -- Lo implementaremos en la ETAPA 21
+                    if loadGame(1) then
+
+                        gameState = "playing"
+
+                    end
 
                 elseif selectedPauseOption == 4 then
 
-                    -- Opciones
-                    -- Lo implementaremos más adelante
+                    optionsReturnState = "paused"
+
+                    selectedOptionItem = 1
+
+                    gameState = "options"
 
                 elseif selectedPauseOption == 5 then
 
@@ -923,7 +1054,46 @@ function love.keypressed(key)
             --funisones pausa
         end
         --pausa
-end
+        
+        --opciones
+        if gameState == "options" then
+
+            if key == "w" or key == "up" then
+
+                selectedOptionItem =
+                    selectedOptionItem - 1
+
+                if selectedOptionItem < 1 then
+                    selectedOptionItem = #optionsMenu
+                end
+
+            end
+
+            if key == "s" or key == "down" then
+
+                selectedOptionItem =
+                    selectedOptionItem + 1
+
+                if selectedOptionItem > #optionsMenu then
+                    selectedOptionItem = 1
+                end
+
+            end
+
+            if key == "return" or key == "kpenter" then
+
+                if selectedOptionItem == #optionsMenu then
+
+                    gameState = optionsReturnState
+
+                end
+
+            end
+        end
+        --opciones
+
+
+    end
 -- nuevo
 function love.keyreleased(key)
 
@@ -976,6 +1146,15 @@ function love.draw()
             "center"
         )
 
+
+        local option = menuOptions[i]
+
+        if option == "Continuar"
+        and not saveExists(1) then
+
+            option = "Continuar (Sin partida)"
+
+        end
         love.graphics.setFont(menuFont)
 
         for i, option in ipairs(menuOptions) do
@@ -1089,6 +1268,69 @@ function love.draw()
     end
     --pausa
 
+    --opciones
+    if gameState == "options" then
+
+        drawBackground(menuBackgrounds)
+
+        love.graphics.setFont(titleFont)
+
+        love.graphics.printf(
+            "OPCIONES",
+            0,
+            80,
+            800,
+            "center"
+        )
+
+        love.graphics.setFont(menuFont)
+
+        for i, option in ipairs(optionsMenu) do
+
+            local prefix = "  "
+
+            if i == selectedOptionItem then
+                prefix = "> "
+            end
+
+            local text =
+                prefix .. option.name
+
+            if option.value ~= nil then
+
+                if type(option.value) == "boolean" then
+
+                    text =
+                        text ..
+                        "   " ..
+                        (option.value and "ON" or "OFF")
+
+                else
+
+                    text =
+                        text ..
+                        "   " ..
+                        tostring(option.value) ..
+                        "%"
+
+                end
+
+            end
+
+            love.graphics.printf(
+                text,
+                0,
+                180 + i * 45,
+                800,
+                "center"
+            )
+
+        end
+
+        return
+
+    end
+    --opciones
     drawBackground(gameBackgrounds)
 
     map:draw()
