@@ -152,6 +152,7 @@ function loadGame(slot)
     player.isCharging = false
     player.chargeTime = 0
     setState("idle")
+    Audio.playMusic("game")
 
 
     gameTime = saveData.statistics.playTime
@@ -190,6 +191,7 @@ function newGame()
     setState("idle")
 
     gameState = "playing"
+    Audio.playMusic("game")
 
 end
 
@@ -202,6 +204,9 @@ function saveExists(slot)
 end
 
 function love.load()
+
+    Audio = require("audioManager")
+    Audio.load()
 
     love.graphics.setDefaultFilter(
         "nearest",
@@ -235,6 +240,7 @@ function love.load()
     loadBackground("menu")
 
     gameState = "menu"
+    Audio.playMusic("menu")
 
     --menu
     menuOptions = {
@@ -280,7 +286,7 @@ function love.load()
         frames = {},
         currentFrame = 1,
         timer = 0,
-        speed = 0.08
+        speed = 0.06
     }
 
     player.animations.jump = {
@@ -408,6 +414,8 @@ function love.load()
     walkSpeed = 120
     gravity = 2000
     maxChargeTime = 1
+
+    runTimer = 0
 
     -- Estadísticas de la partida
     gameTime = 0
@@ -568,6 +576,13 @@ function updateAnimation(dt)
             anim.currentFrame = 1
         end
 
+        --sonido correr
+        if player.state == "run" then
+            if anim.currentFrame == 2 or anim.currentFrame == 13 then
+                Audio.playRandomRun()
+            end
+        end
+
     end
 end
 
@@ -724,23 +739,25 @@ function love.update(dt)
     if player.isGrounded 
         and not player.isCharging then
 
+        local isMoving = false
+
         if love.keyboard.isDown("a") then
 
-            player.x = player.x -
-                    walkSpeed * dt
-
+            player.x = player.x - walkSpeed * dt
             player.facing = -1
+            isMoving = true
 
         end
 
         if love.keyboard.isDown("d") then
 
-            player.x = player.x +
-                    walkSpeed * dt
-
+            player.x = player.x + walkSpeed * dt
             player.facing = 1
+            isMoving = true
 
         end
+
+
 
     end
 
@@ -887,22 +904,6 @@ function love.update(dt)
 
     end
 
-    if love.keyboard.isDown("up") then
-        player.spriteOffsetY = player.spriteOffsetY - 1
-    end
-
-    if love.keyboard.isDown("down") then
-        player.spriteOffsetY = player.spriteOffsetY + 1
-    end
-
-    if love.keyboard.isDown("left") then
-        player.spriteOffsetX = player.spriteOffsetX - 1
-    end
-
-    if love.keyboard.isDown("right") then
-        player.spriteOffsetX = player.spriteOffsetX + 1
-    end
-
 end
 
 
@@ -910,6 +911,8 @@ end
 function love.keypressed(key)
     
     if gameState == "menu" then
+
+            local prev = selectedOption
 
             if key == "up" or key == "w" then
 
@@ -919,6 +922,7 @@ function love.keypressed(key)
                 if selectedOption < 1 then
                     selectedOption = #menuOptions
                 end
+
 
             end
 
@@ -933,6 +937,9 @@ function love.keypressed(key)
 
             end
 
+            if selectedOption ~= prev then
+                Audio.playSound("menuMove")
+            end
 
             if key == "return" then
 
@@ -975,53 +982,55 @@ function love.keypressed(key)
         end
 
             -- Modo Tester
-    if key == "t" then
-        debugFly = not debugFly
-    end
+        if key == "t" then
+            debugFly = not debugFly
+        end
 
-    -- modo tester
-    if debugFly and key == "e" then
+        -- modo tester
+        if debugFly and key == "e" then
 
-        if currentRoom < #rooms then
+            if currentRoom < #rooms then
 
-            currentRoom = currentRoom + 1
-            loadRoom(currentRoom)
-                player.x = 100
-                player.y = 100
+                currentRoom = currentRoom + 1
+                loadRoom(currentRoom)
+                    player.x = 100
+                    player.y = 100
 
+
+            end
 
         end
 
-    end
+        if debugFly and key == "q" then
 
-    if debugFly and key == "q" then
+            if currentRoom > 1 then
 
-        if currentRoom > 1 then
+                currentRoom = currentRoom - 1
+                loadRoom(currentRoom)
+                    player.x = 100
+                    player.y = 100
 
-            currentRoom = currentRoom - 1
-            loadRoom(currentRoom)
-                player.x = 100
-                player.y = 100
+            end
 
         end
-
-    end
-    -- modo tester
+        -- modo tester
 
     
 
-    --pausa
+        --pausa
         if key == "escape" then
 
             if gameState == "playing" then
 
                 selectedPauseOption = 1
                 gameState = "paused"
+                Audio.pauseMusic()
                 return
 
             elseif gameState == "paused" then
 
                 gameState = "playing"
+                Audio.resumeMusic()
                 return
 
             end
@@ -1041,6 +1050,7 @@ function love.keypressed(key)
                         #pauseOptions
                 end
 
+                
             end
 
             if key == "s" or key == "down" then
@@ -1051,15 +1061,21 @@ function love.keypressed(key)
                 if selectedPauseOption > #pauseOptions then
                     selectedPauseOption = 1
                 end
+                
+                
 
             end
 
+            if selectedOption ~= prev then
+                Audio.playSound("menuMove")
+            end
             -- funciones pausa
             if key == "return" or key == "kpenter" then
 
                 if selectedPauseOption == 1 then
 
                     gameState = "playing"
+                    Audio.resumeMusic()
 
                 elseif selectedPauseOption == 2 then
 
@@ -1087,6 +1103,7 @@ function love.keypressed(key)
                     selectedPauseOption = 1
                     
                     gameState = "menu"
+                    Audio.playMusic("menu")
 
                     return
 
@@ -1120,6 +1137,10 @@ function love.keypressed(key)
                     selectedOptionItem = 1
                 end
 
+            end
+
+            if selectedOption ~= prev then
+                Audio.playSound("menuMove")
             end
 
             --volver
@@ -1204,6 +1225,8 @@ function love.keyreleased(key)
 
         jumpCount = jumpCount + 1
 
+        Audio.playRandomJumpPre()
+        
     end
 
 end
@@ -1262,7 +1285,7 @@ function drawMenu()
     end
 
     love.graphics.setFont(smallFont)
-    love.graphics.printf("Version 0.1 Alpha", 0, 570, 800, "center")
+    love.graphics.printf("Version DEMO 0.6", 0, 570, 800, "left")
 
     drawNotification()
 end
