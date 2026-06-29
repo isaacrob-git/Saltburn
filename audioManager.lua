@@ -119,4 +119,26 @@ function Audio.playRandomLand()
 
 end
 
+function Audio.updateVolume(vol)
+
+    if not vol then return end
+
+    local function fixVolume(v)
+        return v * v
+    end
+
+    if Audio.currentSource then
+        Audio.currentSource:setVolume(
+            fixVolume(vol.music * vol.master)
+        )
+    end
+
+    for _, sound in pairs(Audio.sfx) do
+        sound:setVolume(
+            fixVolume(vol.sfx * vol.master)
+        )
+    end
+
+end
+
 return Audio

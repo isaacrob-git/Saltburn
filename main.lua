@@ -206,6 +206,15 @@ end
 function love.load()
 
     Audio = require("audioManager")
+
+
+    --sonido
+    audioVolume = {
+        master = 0.7,
+        music = 0.8,
+        sfx = 0.5
+    }
+    
     Audio.load()
 
     love.graphics.setDefaultFilter(
@@ -257,12 +266,15 @@ function love.load()
     pauseOptions = {
         "Continuar",
         "Guardar Partida",
-        "Cargar Partida",
+        --"Cargar Partida",
         "Opciones",
         "Salir al Menu"
     }
 
     selectedPauseOption = 1
+
+    
+
 
     player.animations = {}
 
@@ -457,17 +469,17 @@ function love.load()
 
         {
             name = "Volumen General",
-            value = 100
+            value = 70
         },
 
         {
             name = "Musica",
-            value = 100
+            value = 80
         },
 
         {
             name = "Efectos",
-            value = 100
+            value = 50
         },
 
         {
@@ -480,6 +492,11 @@ function love.load()
 
     optionsReturnState = "menu"
     --opciones
+
+    applyAudioSettings()
+    Audio.updateVolume(audioVolume)
+
+
 end
 
 -- Se llama automáticamente cuando la ventana cambia de tamaño
@@ -633,7 +650,16 @@ function drawNotification()
 
 end
 
---funcion notificacion
+--funcion sonido
+function applyAudioSettings()
+
+    audioVolume.master = optionsMenu[2].value / 100
+    audioVolume.music  = optionsMenu[3].value / 100
+    audioVolume.sfx    = optionsMenu[4].value / 100
+
+    Audio.updateVolume(audioVolume)
+
+end
 
 function love.update(dt)
 
@@ -911,12 +937,18 @@ function love.update(dt)
 
     end
 
+    --volumen
+    Audio.updateVolume(audioVolume)
+
 end
 
 
 --nuevo
 function love.keypressed(key)
     
+    applyAudioSettings()
+    Audio.updateVolume(audioVolume)
+
     if gameState == "menu" then
 
             local prev = selectedOption
@@ -1088,15 +1120,15 @@ function love.keypressed(key)
 
                     saveGame(1)
 
-                elseif selectedPauseOption == 3 then
+                --[[elseif selectedPauseOption == 3 then
 
                     if loadGame(1) then
 
                         gameState = "playing"
 
-                    end
+                    end--]]
 
-                elseif selectedPauseOption == 4 then
+                elseif selectedPauseOption == 3 then
 
                     optionsReturnState = "paused"
 
@@ -1104,7 +1136,7 @@ function love.keypressed(key)
 
                     gameState = "options"
 
-                elseif selectedPauseOption == 5 then
+                elseif selectedPauseOption == 4 then
 
                     selectedOption = 1
                     selectedPauseOption = 1
@@ -1146,7 +1178,7 @@ function love.keypressed(key)
 
             end
 
-            if selectedOption ~= prev then
+            if selectedOptionItem ~= prev then
                 Audio.playSound("menuMove")
             end
 
@@ -1191,6 +1223,9 @@ function love.keypressed(key)
 
                     if opt.value > 100 then opt.value = 100 end
                     if opt.value < 0 then opt.value = 0 end
+
+                    applyAudioSettings()
+                    Audio.updateVolume(audioVolume)
 
                 end
 
