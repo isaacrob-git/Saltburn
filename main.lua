@@ -227,7 +227,8 @@ function love.load()
         chargeTime = 0,
         facing = 1,
         spriteOffsetX = 13,
-        spriteOffsetY = -70
+        spriteOffsetY = -70,
+        wasGrounded = false
         
         
     }
@@ -576,13 +577,13 @@ function updateAnimation(dt)
             anim.currentFrame = 1
         end
 
-        --sonido correr
+        --[[sonido correr
         if player.state == "run" then
             if anim.currentFrame == 2 or anim.currentFrame == 13 then
                 Audio.playRandomRun()
             end
         end
-
+        --]]
     end
 end
 
@@ -636,6 +637,8 @@ end
 
 function love.update(dt)
 
+
+    player.wasGrounded = player.isGrounded
     map:update(dt)
 
 
@@ -853,6 +856,10 @@ function love.update(dt)
 
         end
 
+    end
+
+    if player.isGrounded and not player.wasGrounded then
+        Audio.playRandomLand()
     end
 
     if player.isCharging then

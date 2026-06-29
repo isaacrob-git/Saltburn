@@ -32,6 +32,13 @@ function Audio.load()
     Audio.sfx.jumpPre3 = love.audio.newSource("assets/sounds/jump_pre3.wav", "static")
     Audio.sfx.jumpPre4 = love.audio.newSource("assets/sounds/jump_pre4.wav", "static")
     Audio.sfx.jumpPre5 = love.audio.newSource("assets/sounds/jump_pre5.wav", "static")
+
+    Audio.sfx.land1 = love.audio.newSource("assets/sounds/land1.wav", "static")
+    Audio.sfx.land2 = love.audio.newSource("assets/sounds/land2.wav", "static")
+    Audio.sfx.land3 = love.audio.newSource("assets/sounds/land3.wav", "static")
+    Audio.sfx.land4 = love.audio.newSource("assets/sounds/land4.wav", "static")
+    Audio.sfx.land5 = love.audio.newSource("assets/sounds/land5.wav", "static")
+
 end
 
 
@@ -105,5 +112,11 @@ function Audio.playRandomJumpPre()
 
 end
 
+function Audio.playRandomLand()
+
+    local random = math.random(1, 5)
+    Audio.playSound("land" .. random)
+
+end
 
 return Audio
