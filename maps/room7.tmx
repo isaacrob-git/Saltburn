@@ -480,7 +480,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="12" name="portal">
+ <objectgroup id="12" name="portal" visible="0">
   <object id="71" x="740" y="115" width="19.6667" height="44.6667"/>
  </objectgroup>
  <objectgroup id="3" name="Collisions" visible="0">

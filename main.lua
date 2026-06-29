@@ -1031,6 +1031,7 @@ function love.keypressed(key)
                 if selectedOption == 1 then
 
                     newGame()
+                    Audio.playMusic("game")
 
                 elseif selectedOption == 2 then
 
@@ -1090,10 +1091,10 @@ function love.keypressed(key)
 
         end
 
-            -- Modo Tester
+            --[[Modo Tester
         if key == "t" then
             debugFly = not debugFly
-        end
+        end--]]
 
         -- modo tester
         if debugFly and key == "e" then
@@ -1420,6 +1421,10 @@ function drawPaused()
     love.graphics.setFont(titleFont)
     love.graphics.printf("PAUSA", 0, 80, 800, "center")
 
+    love.graphics.setFont(smallFont)
+    love.graphics.print("Tiempo: " .. formatTime(gameTime), 10, 500)
+    love.graphics.print("Saltos: " .. jumpCount, 10, 530)
+
     love.graphics.setFont(menuFont)
 
     for i, option in ipairs(pauseOptions) do
@@ -1462,13 +1467,13 @@ end
 
 function drawHUD()
 
-    love.graphics.setFont(verysmallFont)
+    --love.graphics.setFont(smallFont)
 
-    love.graphics.print("SALTBURN", 10, 10)
+    --love.graphics.print("SALTBURN", 10, 10)
 
-    love.graphics.print("Tiempo: " .. formatTime(gameTime), 10, 210)
-    love.graphics.print("Saltos: " .. jumpCount, 10, 230)
-    love.graphics.print("Room: " .. currentRoom, 10, 270)
+    --love.graphics.print("Tiempo: " .. formatTime(gameTime), 10, 210)
+    --love.graphics.print("Saltos: " .. jumpCount, 10, 230)
+    --love.graphics.print("Room: " .. currentRoom, 10, 270)
 end
 
 function drawLetterbox()
@@ -1563,12 +1568,30 @@ function drawEnding()
     love.graphics.setColor(1,1,1)
 
     love.graphics.setFont(titleFont)
-    love.graphics.printf("CREDITOS", 0, 100, 800, "center")
+    love.graphics.printf("Gracias por Jugar", 0, 100, 800, "center")
 
     love.graphics.setFont(menuFont)
-    love.graphics.printf("Gracias por jugar", 0, 200, 800, "center")
+    love.graphics.printf("Desarrollado por Isaac", 0, 200, 800, "center")
 
-    love.graphics.printf("Volviendo al menu...", 0, 400, 800, "center")
+    love.graphics.printf("Estadisticas:", 0, 300, 800, "center")
+
+    love.graphics.printf(
+        "Tiempo: " .. formatTime(gameTime),
+        0,
+        360,
+        800,
+        "center"
+    )
+
+    love.graphics.printf(
+        "Saltos: " .. jumpCount,
+        0,
+        400,
+        800,
+        "center"
+    )
+
+    love.graphics.printf("Volviendo al menu...", 0, 500, 800, "center")
 
 end
 

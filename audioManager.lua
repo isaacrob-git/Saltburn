@@ -7,7 +7,7 @@ Audio.currentMusic = nil
 function Audio.load()
 
     Audio.music.menu =
-        love.audio.newSource("assets/sounds/menu.ogg", "stream")
+        love.audio.newSource("assets/sounds/menu.mp3", "stream")
 
     Audio.music.menu:setLooping(true)
     
