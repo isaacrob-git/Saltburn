@@ -226,6 +226,10 @@ function love.load()
         
         
     }
+    --Canvas
+    virtualWidth = 800
+    virtualHeight = 600
+    --Canvas
 
     menuBackgrounds =
     loadBackground("menu")
@@ -358,6 +362,15 @@ function love.load()
 
         map = sti(rooms[index])
 
+        -- Importante: el canvas interno de STI debe coincidir con el
+        -- tamaño REAL de la ventana (no con la resolución virtual),
+        -- si no, en pantalla completa el mapa se dibuja chiquito en
+        -- la esquina superior izquierda.
+        map:resize(
+            love.graphics.getWidth(),
+            love.graphics.getHeight()
+        )
+
         for name, layer in pairs(map.layers) do
             print("CAPA:", name)
             print("TIPO:", layer.type)
@@ -460,6 +473,35 @@ function love.load()
     --opciones
 end
 
+-- Se llama automáticamente cuando la ventana cambia de tamaño
+-- (incluye activar/desactivar pantalla completa). Sin esto, el
+-- canvas interno de STI se queda con el tamaño viejo y el mapa
+-- se ve chiquito y desplazado.
+function love.resize(w, h)
+
+    if map then
+        map:resize(w, h)
+    end
+
+end
+
+function getScreenScale()
+
+    local sw = love.graphics.getWidth()
+    local sh = love.graphics.getHeight()
+
+    local scale = math.min(
+        sw / virtualWidth,
+        sh / virtualHeight
+    )
+
+    local offsetX = (sw - virtualWidth * scale) / 2
+    local offsetY = (sh - virtualHeight * scale) / 2
+
+    return scale, offsetX, offsetY
+
+end
+
 function loadBackground(backgroundName)
 
     local backgrounds = {}
@@ -486,11 +528,11 @@ function drawBackground(backgroundSet)
     for i = 1, #backgroundSet do
 
         local scaleX =
-            love.graphics.getWidth() /
+            virtualWidth /
             backgroundSet[i]:getWidth()
 
         local scaleY =
-            love.graphics.getHeight() /
+            virtualHeight /
             backgroundSet[i]:getHeight()
 
         love.graphics.draw(
@@ -1080,6 +1122,7 @@ function love.keypressed(key)
 
             end
 
+            --volver
             if key == "return" or key == "kpenter" then
 
                 if selectedOptionItem == #optionsMenu then
@@ -1089,6 +1132,42 @@ function love.keypressed(key)
                 end
 
             end
+
+            --menu de opciones
+
+            local opt = optionsMenu[selectedOptionItem]
+
+            if key == "left" or key == "right" or key == "a" or key == "d" then
+
+                if opt.name == "Pantalla completa" then
+
+                    opt.value = not opt.value
+                    love.window.setFullscreen(opt.value)
+
+                    -- Respaldo extra: por si love.resize no se
+                    -- dispara de inmediato en alguna plataforma
+                    if map then
+                        map:resize(
+                            love.graphics.getWidth(),
+                            love.graphics.getHeight()
+                        )
+                    end
+
+                elseif opt.name == "Volumen General"
+                    or opt.name == "Musica"
+                    or opt.name == "Efectos" then
+
+                    local step = (key == "right" or key == "d") and 10 or -10
+
+                    opt.value = opt.value + step
+
+                    if opt.value > 100 then opt.value = 100 end
+                    if opt.value < 0 then opt.value = 0 end
+
+                end
+
+            end
+        
         end
         --opciones
 
@@ -1132,218 +1211,103 @@ end
 
 function love.draw()
 
+    local scaleFactor, offsetX, offsetY = getScreenScale()
+    
+    love.graphics.push()
+    love.graphics.origin()
+
+    love.graphics.translate(offsetX, offsetY)
+    love.graphics.scale(scaleFactor, scaleFactor)
+
+    love.graphics.translate(0, 0)
 
     if gameState == "menu" then
+        drawMenu()
 
-        drawBackground(menuBackgrounds)
-        love.graphics.setFont(titleFont)
+    elseif gameState == "paused" then
+        drawPaused()
 
-        love.graphics.printf(
-            "SALTBURN",
-            0,
-            80,
-            800,
-            "center"
-        )
+    elseif gameState == "options" then
+        drawOptions()
 
-
-        local option = menuOptions[i]
-
-        if option == "Continuar"
-        and not saveExists(1) then
-
-            option = "Continuar (Sin partida)"
-
-        end
-        love.graphics.setFont(menuFont)
-
-        for i, option in ipairs(menuOptions) do
-
-            local prefix = "  "
-
-            if i == selectedOption then
-                prefix = "> "
-            end
-
-            love.graphics.printf(
-                prefix .. option,
-                0,
-                200 + (i * 40),
-                800,
-                "center"
-            )
-
-        end
-
-        love.graphics.setFont(smallFont)
-        
-        love.graphics.printf(
-            "Version 0.1 Alpha",
-            0,
-            570,
-            800,
-            "left"
-        )
-
-        drawNotification()
-        
-        return
-
-    end    
-
-    love.graphics.setColor(1, 1, 1, 1)
-    --pausa
-    if gameState == "paused" then
-
-        drawBackground(gameBackgrounds)
-
-        map:draw()
-
-        local anim =
-            player.animations[player.state]
-
-        local scale = 2
-
-        love.graphics.draw(
-            anim.image,
-            anim.frames[anim.currentFrame],
-            player.x + player.spriteOffsetX,
-            player.y + player.spriteOffsetY,
-            0,
-            player.facing * scale,
-            scale,
-            30,
-            0
-        )
-
-        --background del pausa
-        love.graphics.setColor(0, 0, 0, 0.55)
-
-        love.graphics.rectangle(
-            "fill",
-            0,
-            0,
-            love.graphics.getWidth(),
-            love.graphics.getHeight()
-        )
-        --background del pausa
-
-        love.graphics.setColor(1, 1, 1, 1)
-        
-        love.graphics.setFont(titleFont)
-
-        love.graphics.printf(
-            "PAUSA",
-            0,
-            80,
-            800,
-            "center"
-        )
-        
-
-        love.graphics.setFont(menuFont)
-
-        for i, option in ipairs(pauseOptions) do
-
-            local prefix = "  "
-
-            if i == selectedPauseOption then
-                prefix = "> "
-            end
-
-            love.graphics.printf(
-                prefix .. option,
-                0,
-                220 + i * 40,
-                800,
-                "center"
-            )
-
-        end
-
-        drawNotification()
-        
-        return
-
+    else
+        drawGame()
     end
-    --pausa
 
-    --opciones
-    if gameState == "options" then
+    love.graphics.pop()
 
-        drawBackground(menuBackgrounds)
+    drawLetterbox()
 
-        love.graphics.setFont(titleFont)
+end
+
+function drawMenu()
+    drawBackground(menuBackgrounds)
+
+    love.graphics.setFont(titleFont)
+    love.graphics.printf("SALTBURN", 0, 80, 800, "center")
+
+    love.graphics.setFont(menuFont)
+
+    for i, option in ipairs(menuOptions) do
+
+        local prefix = (i == selectedOption) and "> " or "  "
 
         love.graphics.printf(
-            "OPCIONES",
+            prefix .. option,
             0,
-            80,
+            200 + (i * 40),
             800,
             "center"
         )
-
-        love.graphics.setFont(menuFont)
-
-        for i, option in ipairs(optionsMenu) do
-
-            local prefix = "  "
-
-            if i == selectedOptionItem then
-                prefix = "> "
-            end
-
-            local text =
-                prefix .. option.name
-
-            if option.value ~= nil then
-
-                if type(option.value) == "boolean" then
-
-                    text =
-                        text ..
-                        "   " ..
-                        (option.value and "ON" or "OFF")
-
-                else
-
-                    text =
-                        text ..
-                        "   " ..
-                        tostring(option.value) ..
-                        "%"
-
-                end
-
-            end
-
-            love.graphics.printf(
-                text,
-                0,
-                180 + i * 45,
-                800,
-                "center"
-            )
-
-        end
-
-        return
-
     end
-    --opciones
+
+    love.graphics.setFont(smallFont)
+    love.graphics.printf("Version 0.1 Alpha", 0, 570, 800, "center")
+
+    drawNotification()
+end
+
+function drawPaused()
     drawBackground(gameBackgrounds)
 
-    map:draw()
+    local scale, offsetX, offsetY = getScreenScale()
+    map:draw(offsetX / scale, offsetY / scale, scale, scale)
 
-    love.graphics.setFont(verysmallFont)
+    drawPlayer()
 
-    love.graphics.print("SALTBURN", 10, 10)
+    love.graphics.setColor(0,0,0,0.55)
+    love.graphics.rectangle("fill", 0, 0, 800, 600)
+    love.graphics.setColor(1,1,1)
 
+    love.graphics.setFont(titleFont)
+    love.graphics.printf("PAUSA", 0, 80, 800, "center")
 
-    local anim =
-        player.animations[player.state]
+    love.graphics.setFont(menuFont)
 
-    local scale = 2
+    for i, option in ipairs(pauseOptions) do
+        local prefix = (i == selectedPauseOption) and "> " or "  "
+
+        love.graphics.printf(prefix .. option, 0, 220 + i*40, 800, "center")
+    end
+
+    drawNotification()
+end
+
+function drawGame()
+    drawBackground(gameBackgrounds)
+
+    local scale, offsetX, offsetY = getScreenScale()
+    map:draw(offsetX / scale, offsetY / scale, scale, scale)
+
+    drawPlayer()
+
+    drawHUD()
+end
+
+function drawPlayer()
+    local anim = player.animations[player.state]
+
+    local drawScale = 2
 
     love.graphics.draw(
         anim.image,
@@ -1351,116 +1315,95 @@ function love.draw()
         player.x + player.spriteOffsetX,
         player.y + player.spriteOffsetY,
         0,
-        player.facing * scale,
-        scale,
+        player.facing * drawScale,
+        drawScale,
         30,
         0
     )
-    
+end
 
-    love.graphics.print(
-        "En suelo: " .. tostring(player.isGrounded),
-        10,
-        30
+function drawHUD()
+
+    love.graphics.setFont(verysmallFont)
+
+    love.graphics.print("SALTBURN", 10, 10)
+
+    love.graphics.print("Tiempo: " .. formatTime(gameTime), 10, 210)
+    love.graphics.print("Saltos: " .. jumpCount, 10, 230)
+    love.graphics.print("Room: " .. currentRoom, 10, 270)
+end
+
+function drawLetterbox()
+
+    local sw = love.graphics.getWidth()
+    local sh = love.graphics.getHeight()
+
+    local scale, offsetX, offsetY = getScreenScale()
+
+    love.graphics.setColor(0,0,0)
+
+    love.graphics.rectangle("fill", 0, 0, offsetX, sh)
+    love.graphics.rectangle("fill", sw-offsetX, 0, offsetX, sh)
+    love.graphics.rectangle("fill", 0, 0, sw, offsetY)
+    love.graphics.rectangle("fill", 0, sh-offsetY, sw, offsetY)
+
+    love.graphics.setColor(1,1,1)
+end
+
+function drawOptions()
+
+    drawBackground(menuBackgrounds)
+
+    love.graphics.setFont(titleFont)
+
+    love.graphics.printf(
+        "OPCIONES",
+        0,
+        80,
+        800,
+        "center"
     )
 
-    love.graphics.print(
-         "Velocidad Y: " ..
-         math.floor(player.velocityY),
-        10,
-        50
-    )   
-    
-    love.graphics.print(
-        "Carga: " ..
-        string.format("%.2f", player.chargeTime),
-        10,
-        70
-    )
+    love.graphics.setFont(menuFont)
 
-    local direction = "Derecha"
+    for i, option in ipairs(optionsMenu) do
 
-    if player.facing == -1 then
-        direction = "Izquierda"
+        local prefix = "  "
+
+        if i == selectedOptionItem then
+            prefix = "> "
+        end
+
+        local text = prefix .. option.name
+
+        if option.value ~= nil then
+
+            if type(option.value) == "boolean" then
+                text = text .. "   " .. (option.value and "ON" or "OFF")
+            else
+                text = text .. "   " .. tostring(option.value) .. "%"
+            end
+        end
+
+        love.graphics.printf(
+            text,
+            0,
+            180 + i * 45,
+            800,
+            "center"
+        )
+
     end
 
-    love.graphics.print(
-        "Direccion: " .. direction,
-        10,
-        90
-    )
+end
 
-    love.graphics.print(
-        "Potencia: " ..
-        math.floor(player.jumpPower),
-        10,
-        110
-    )
+function love.conf(t)
 
-    --love.graphics.setColor(1,0,0)
-    --    for _, p in ipairs(platforms) do
-    --        love.graphics.rectangle("line", p.x, p.y, p.width, p.height)
-    --    end
-    --    love.graphics.setColor(1,1,1)
+    t.window.width = 800
+    t.window.height = 600
 
+    t.window.resizable = true
 
-    love.graphics.print(
-        "Estado: " .. player.state,
-        10,
-        130
-    )
+    t.window.highdpi = false
 
-        --[love.graphics.setColor(0,1,0)
-        --love.graphics.rectangle(
-           -- "line",
-           -- player.x,
-           -- player.y,
-           -- player.width,
-           -- player.height
-        --)
-        --love.graphics.setColor(1,1,1)
-
-        love.graphics.print(
-            "Offset X: "..player.spriteOffsetX,
-            10,
-            150
-        )
-
-        love.graphics.print(
-            "Offset Y: "..player.spriteOffsetY,
-            10,
-            170
-        )
-
-        love.graphics.print(
-            "Facing: " .. player.facing,
-            10,
-            190
-        )
-
-        if debugFly then
-        love.graphics.print(
-            "DEBUG FLY",
-            10,
-            250
-        )
-        end
-        love.graphics.print(
-            "Room: " .. currentRoom,
-            10,
-            270
-        )
-
-        love.graphics.print(
-            "Tiempo: " .. formatTime(gameTime),
-            10,
-            210
-        )
-
-        love.graphics.print(
-            "Saltos: " .. jumpCount,
-            10,
-            230
-        )
-    
 end
