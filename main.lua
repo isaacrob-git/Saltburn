@@ -205,6 +205,7 @@ end
 
 function love.load()
 
+    
     Audio = require("audioManager")
 
 
@@ -417,6 +418,21 @@ function love.load()
                 roomBackgrounds[index]
             )
 
+
+            portals = {}
+
+            local layer = map.layers["portal"]
+
+            if layer then
+                for _, obj in ipairs(layer.objects) do
+                    table.insert(portals, {
+                        x = obj.x,
+                        y = obj.y,
+                        width = obj.width,
+                        height = obj.height
+                    })
+                end
+            end
     end
 
     loadRoom(currentRoom)
@@ -429,7 +445,7 @@ function love.load()
     maxChargeTime = 1
 
     runTimer = 0
-
+    endingTimer = 0
     -- Estadísticas de la partida
     gameTime = 0
     jumpCount = 0
@@ -681,6 +697,23 @@ function love.update(dt)
     end
     --notificanciones
 
+    --ending (tiene que actualizarse aunque gameState ya no sea "playing")
+    if gameState == "ending" then
+
+        endingTimer = endingTimer + dt
+        print("ENDING:", endingTimer)
+
+        if endingTimer > 5 then
+            gameState = "menu"
+            currentRoom = 1
+            loadRoom(currentRoom)
+            endingTimer = nil
+        end
+
+        return
+    end
+    --ending
+
     if gameState ~= "playing" then
         return
     end
@@ -692,6 +725,7 @@ function love.update(dt)
     if gameState == "paused" then
         return
     end
+
 
     if gameState == "menu" then
 
@@ -937,6 +971,18 @@ function love.update(dt)
 
     end
 
+    --portal
+    for _, p in ipairs(portals) do
+        if checkCollision(player, p) then
+
+            gameState = "ending"
+            endingTimer = 0
+
+            return -- el timer del ending se maneja al inicio de love.update
+
+        end
+    end
+
     --volumen
     Audio.updateVolume(audioVolume)
 
@@ -1011,6 +1057,30 @@ function love.keypressed(key)
             return
 
         end
+
+        --confirmacion de nueva partida
+        if gameState == "confirmOverwrite" then
+
+            if key == "left" or key == "right" then
+                confirmOption = (confirmOption == 1) and 2 or 1
+            end
+
+            if key == "return" then
+
+                if confirmOption == 1 then
+                    startNewGame()
+                else
+                    gameState = "menu"
+                end
+
+            end
+
+            if key == "escape" then
+                gameState = "menu"
+            end
+
+        end
+        --confirmacion de nueva partida
 
         if key == "space" and player.isGrounded then
 
@@ -1295,6 +1365,9 @@ function love.draw()
     elseif gameState == "options" then
         drawOptions()
 
+    elseif gameState == "ending" then
+        drawEnding()
+    
     else
         drawGame()
     end
@@ -1415,9 +1488,30 @@ function drawLetterbox()
     love.graphics.setColor(1,1,1)
 end
 
+
+function drawGameBehindPause()
+
+    local scale, offsetX, offsetY = getScreenScale()
+
+    map:draw(offsetX / scale, offsetY / scale, scale, scale)
+
+    drawPlayer()
+
+    love.graphics.setColor(0,0,0,0.55)
+    love.graphics.rectangle("fill", 0, 0, 800, 600)
+    love.graphics.setColor(1,1,1)
+
+end
+
+
 function drawOptions()
 
-    drawBackground(menuBackgrounds)
+    if optionsReturnState == "menu" then
+        drawBackground(menuBackgrounds)
+    else
+        drawBackground(gameBackgrounds)
+        drawGameBehindPause()
+    end
 
     love.graphics.setFont(titleFont)
 
@@ -1459,6 +1553,22 @@ function drawOptions()
         )
 
     end
+
+end
+
+function drawEnding()
+
+    love.graphics.setColor(0,0,0)
+    love.graphics.rectangle("fill", 0, 0, 800, 600)
+    love.graphics.setColor(1,1,1)
+
+    love.graphics.setFont(titleFont)
+    love.graphics.printf("CREDITOS", 0, 100, 800, "center")
+
+    love.graphics.setFont(menuFont)
+    love.graphics.printf("Gracias por jugar", 0, 200, 800, "center")
+
+    love.graphics.printf("Volviendo al menu...", 0, 400, 800, "center")
 
 end
 

@@ -9,8 +9,8 @@ return {
   height = 19,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 12,
-  nextobjectid = 68,
+  nextlayerid = 13,
+  nextobjectid = 72,
   properties = {},
   tilesets = {
     {
@@ -1365,6 +1365,216 @@ return {
       wangsets = {},
       tilecount = 28,
       tiles = {}
+    },
+    {
+      name = "GandalfHardcore Portal sheet",
+      firstgid = 2860,
+      class = "",
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      columns = 20,
+      image = "../assets/tilesets/GandalfHardcore Portal sheet.png",
+      imagewidth = 640,
+      imageheight = 64,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 32
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 40,
+      tiles = {
+        {
+          id = 0,
+          animation = {
+            {
+              tileid = 0,
+              duration = 100
+            },
+            {
+              tileid = 2,
+              duration = 100
+            },
+            {
+              tileid = 4,
+              duration = 100
+            },
+            {
+              tileid = 6,
+              duration = 100
+            },
+            {
+              tileid = 8,
+              duration = 100
+            },
+            {
+              tileid = 10,
+              duration = 100
+            },
+            {
+              tileid = 12,
+              duration = 100
+            },
+            {
+              tileid = 14,
+              duration = 100
+            },
+            {
+              tileid = 16,
+              duration = 100
+            },
+            {
+              tileid = 18,
+              duration = 100
+            }
+          }
+        },
+        {
+          id = 1,
+          animation = {
+            {
+              tileid = 1,
+              duration = 100
+            },
+            {
+              tileid = 3,
+              duration = 100
+            },
+            {
+              tileid = 5,
+              duration = 100
+            },
+            {
+              tileid = 7,
+              duration = 100
+            },
+            {
+              tileid = 9,
+              duration = 100
+            },
+            {
+              tileid = 11,
+              duration = 100
+            },
+            {
+              tileid = 13,
+              duration = 100
+            },
+            {
+              tileid = 15,
+              duration = 100
+            },
+            {
+              tileid = 17,
+              duration = 100
+            },
+            {
+              tileid = 19,
+              duration = 100
+            }
+          }
+        },
+        {
+          id = 20,
+          animation = {
+            {
+              tileid = 20,
+              duration = 100
+            },
+            {
+              tileid = 22,
+              duration = 100
+            },
+            {
+              tileid = 24,
+              duration = 100
+            },
+            {
+              tileid = 26,
+              duration = 100
+            },
+            {
+              tileid = 28,
+              duration = 100
+            },
+            {
+              tileid = 30,
+              duration = 100
+            },
+            {
+              tileid = 32,
+              duration = 100
+            },
+            {
+              tileid = 34,
+              duration = 100
+            },
+            {
+              tileid = 36,
+              duration = 100
+            },
+            {
+              tileid = 38,
+              duration = 100
+            }
+          }
+        },
+        {
+          id = 21,
+          animation = {
+            {
+              tileid = 21,
+              duration = 100
+            },
+            {
+              tileid = 23,
+              duration = 100
+            },
+            {
+              tileid = 25,
+              duration = 100
+            },
+            {
+              tileid = 27,
+              duration = 100
+            },
+            {
+              tileid = 29,
+              duration = 100
+            },
+            {
+              tileid = 31,
+              duration = 100
+            },
+            {
+              tileid = 33,
+              duration = 100
+            },
+            {
+              tileid = 35,
+              duration = 100
+            },
+            {
+              tileid = 37,
+              duration = 100
+            },
+            {
+              tileid = 39,
+              duration = 100
+            }
+          }
+        }
+      }
     }
   },
   layers = {
@@ -1584,8 +1794,8 @@ return {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2860, 2861, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2880, 2881, 0,
         0, 0, 0, 0, 1123, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -1600,6 +1810,36 @@ return {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 12,
+      name = "portal",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 71,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 740,
+          y = 115,
+          width = 19.6667,
+          height = 44.6667,
+          rotation = 0,
+          opacity = 1,
+          visible = true,
+          properties = {}
+        }
       }
     },
     {
