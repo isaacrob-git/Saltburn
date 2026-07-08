@@ -1091,12 +1091,12 @@ function love.keypressed(key)
 
         end
 
-            --Modo Tester
+            --[[Modo Tester
         if key == "t" then
             debugFly = not debugFly
         end
 
-        -- modo tester
+        -- modo tester]]
         if debugFly and key == "e" then
 
             if currentRoom < #rooms then
