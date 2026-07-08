@@ -4,7 +4,7 @@
 
 El objetivo del proyecto es recrear la sensación de los juegos de plataformas, incorporando mecánicas propias como el salto cargado y un movimiento preciso del personaje.
 
-![Banner](images/banner1.png) ![Banner](images/banner3.png) ![Banner](images/banner2.png)
+![Banner](images/banner1.png) ![Banner](images/banner2.png)
 
 ---
 
